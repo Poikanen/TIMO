@@ -38,4 +38,10 @@ public class SmartPost {
     public GeoPoint getGp() {
         return gp;
     }
+
+    @Override
+    public String toString() {
+        return city + name;
+    }
+    
 }
