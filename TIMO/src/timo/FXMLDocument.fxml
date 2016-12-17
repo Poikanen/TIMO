@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="527.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="timo.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.FXMLDocumentController">
    <children>
       <WebView fx:id="wvMap" prefHeight="445.0" prefWidth="276.0" />
       <ComboBox fx:id="cbSmartPost" layoutX="14.0" layoutY="460.0" prefWidth="150.0" promptText="Valitse SmartPost" />
@@ -19,6 +19,7 @@
       <ComboBox fx:id="cbStartSmartPost" layoutX="305.0" layoutY="137.0" prefWidth="150.0" promptText="SmartPost" />
       <ComboBox fx:id="cbDestinationSmartPost" layoutX="305.0" layoutY="240.0" prefWidth="150.0" promptText="SmartPost" />
       <Button layoutX="305.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleCreatePacket" text="Luo paketti" />
-      <Button layoutX="291.0" layoutY="460.0" mnemonicParsing="false" text="Lähetä paketit" />
+      <Button layoutX="391.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
+      <Button layoutX="276.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
    </children>
 </AnchorPane>
