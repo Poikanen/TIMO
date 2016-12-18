@@ -28,13 +28,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<?> cbPacket;
     @FXML
-    private ComboBox<?> cbStartCity;
+    private ComboBox<String> cbStartCity;
     @FXML
-    private ComboBox<?> cbDestinationCIty;
+    private ComboBox<SmartPost> cbStartSmartPost;
     @FXML
-    private ComboBox<?> cbStartSmartPost;
+    private ComboBox<String> cbDestinationCity;
     @FXML
-    private ComboBox<?> cbDestinationSmartPost;
+    private ComboBox<SmartPost> cbDestinationSmartPost;
     
     private DataBuilder db;
     
@@ -43,6 +43,8 @@ public class FXMLDocumentController implements Initializable {
         wvMap.getEngine().load(getClass().getResource("index.html").toExternalForm());
         db = new DataBuilder();
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
+        cbStartCity.getItems().addAll(db.getCities());
+        cbDestinationCity.getItems().addAll(db.getCities());
     }
 
     @FXML
@@ -79,5 +81,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleEmptyPaths(ActionEvent event) {
         wvMap.getEngine().executeScript("document.deletePaths()");
+    }
+
+    @FXML
+    private void handleStartCityChange(ActionEvent event) {
+        cbStartSmartPost.getItems().clear();
+        cbStartSmartPost.getItems().addAll(db.getCitysSmartPosts(cbStartCity.getValue()));
+    }
+
+    @FXML
+    private void handleDestinationCityChange(ActionEvent event) {
+        cbDestinationSmartPost.getItems().clear();
+        cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
 }
