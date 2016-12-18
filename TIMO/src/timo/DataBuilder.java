@@ -67,4 +67,9 @@ public class DataBuilder {
             Logger.getLogger(DataBuilder.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<SmartPost> getAllSmartPosts() {
+        return allSmartPosts;
+    }
+    
 }
