@@ -12,27 +12,32 @@ package timo;
 public class SmartPost {
     
     public class GeoPoint{
-        private double lat, lon;
+        private String lat, lon;
 
-        public GeoPoint(double lat, double lon) {
+        public GeoPoint(String lat, String lon) {
             this.lat = lat;
             this.lon = lon;
         }
 
-        public double getLat() {
+        public String getLat() {
             return lat;
         }
 
-        public double getLon() {
+        public String getLon() {
             return lon;
         }
     }
     
     private GeoPoint gp;
-    private String name, city, postnumber;
+    private String name, city, postnumber, address;
 
-    public SmartPost(double lat, double lon) {
+    public SmartPost(String name, String city, String postnumber, String address, String lat, String lon) {
+        this.name = name;
+        this.city = city;
+        this.postnumber = postnumber;
+        this.address = address;
         this.gp = new GeoPoint(lat, lon);
+        System.out.println("Added " + this.toString());
     }
 
     public GeoPoint getGp() {
@@ -41,7 +46,7 @@ public class SmartPost {
 
     @Override
     public String toString() {
-        return city + name;
+        return city + " " + name;
     }
     
 }
