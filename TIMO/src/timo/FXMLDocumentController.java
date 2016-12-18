@@ -10,9 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.web.WebView;
 
 /**
@@ -24,7 +22,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private WebView wvMap;
     @FXML
-    private ComboBox<?> cbSmartPost;
+    private ComboBox<SmartPost> cbSmartPost;
     @FXML
     private ComboBox<?> cbItem;
     @FXML
@@ -38,9 +36,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<?> cbDestinationSmartPost;
     
+    private DataBuilder db;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         wvMap.getEngine().load(getClass().getResource("index.html").toExternalForm());
+        db = new DataBuilder();
+        cbSmartPost.getItems().addAll(db.getAllSmartPosts());
     }
 
     @FXML
