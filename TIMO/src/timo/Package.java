@@ -47,4 +47,6 @@ abstract public class Package {
     public void send(){
         sent = true;
     }
+    
+    abstract public String getCategory();
 }

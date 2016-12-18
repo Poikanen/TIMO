@@ -20,7 +20,7 @@ public class Storage {
         allPackages = new ArrayList<Package>();
     }
 
-    public Storage getInstance() {
+    public static Storage getInstance() {
         if(instance == null){
             instance = new Storage();
         }
@@ -41,5 +41,4 @@ public class Storage {
         }
         return pkgToSend;
     }
-    
 }

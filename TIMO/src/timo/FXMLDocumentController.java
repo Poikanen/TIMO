@@ -6,6 +6,7 @@
 package timo;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,11 +38,13 @@ public class FXMLDocumentController implements Initializable {
     private ComboBox<SmartPost> cbDestinationSmartPost;
     
     private DataBuilder db;
+    private Storage storage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         wvMap.getEngine().load(getClass().getResource("index.html").toExternalForm());
         db = new DataBuilder();
+        storage = Storage.getInstance();
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
         cbStartCity.getItems().addAll(db.getCities());
         cbDestinationCity.getItems().addAll(db.getCities());
@@ -70,12 +73,42 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleCreatePacket(ActionEvent event) {
-        //TODO
+        
+        storage.addPackage(new PackageFirstCategory(new Object(false), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue()));
     }
 
     @FXML
     private void handleSendPackets(ActionEvent event) {
-        //wvMap.getEngine().executeScript("document.createPath(/*Add parameters*/)");
+        ArrayList<Package> tmpToSend = storage.sendPackages();
+        for(int i = 0; i < tmpToSend.size(); i++){
+            String script = "document.createPath(";
+            //Get coordinates as String-array
+            script += "[\"" + tmpToSend.get(i).getStart().getGp().getLat() + "\", ";
+            script += "\"" + tmpToSend.get(i).getStart().getGp().getLon() + "\", ";
+            script += "\"" + tmpToSend.get(i).getDestination().getGp().getLat() + "\", ";
+            script += "\"" + tmpToSend.get(i).getDestination().getGp().getLon() + "\"], ";
+            if(tmpToSend.get(i).getCategory().equals("1")){
+                //Color
+                script += "\"green\", ";
+                //Class
+                script += "1)";
+            }else if(tmpToSend.get(i).getCategory().equals("2")){
+                //Color
+                script += "\"blue\", ";
+                //Class
+                script += "2)";
+            
+            }else if(tmpToSend.get(i).getCategory().equals("3")){
+                //Color
+                script += "\"red\", ";
+                //Class
+                script += "3)";
+            
+            }else{
+                //Throw error or something
+            }
+            wvMap.getEngine().executeScript(script);
+        }
     }
 
     @FXML

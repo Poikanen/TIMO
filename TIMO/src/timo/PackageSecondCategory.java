@@ -9,10 +9,15 @@ package timo;
  *
  * @author Toivo
  */
-public class PackageFirstClass extends Package{
-    
-    public PackageFirstClass(Object item, SmartPost start, SmartPost destination) {
+public class PackageSecondCategory extends Package{
+
+    public PackageSecondCategory(Object item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
+    }
+
+    @Override
+    public String getCategory() {
+        return "2";
     }
     
 }
