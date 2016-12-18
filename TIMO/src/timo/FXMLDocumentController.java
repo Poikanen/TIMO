@@ -47,7 +47,23 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleAddSmartPost(ActionEvent event) {
-        //wvMap.getEngine().executeScript("document.goToLocation(/*Add parameters*/)");
+        SmartPost SP = cbSmartPost.getValue();
+        //JS-script: document.goToLocation("<address>, <postnumber> <city>", "<additional info>", "<color>")
+        //Construct the script
+        String script = "document.goToLocation(";
+        //First parameter, "<address>, 
+        script += "\"" + SP.getAddress() + ", ";
+        //<postnumber> 
+        script += SP.getPostnumber() + " ";
+        //<city>", 
+        script += SP.getCity() + "\",";
+        //Second parameter "<Additional info>", 
+        script += " \"" /*+ <Additional info here>*/ + "\",";
+        //Third parameter "<color>" and close with )
+        script += "\"red\"" + ")";
+        //Uncomment to see the syntax
+        //System.out.println(script);
+        wvMap.getEngine().executeScript(script);
     }
 
     @FXML
