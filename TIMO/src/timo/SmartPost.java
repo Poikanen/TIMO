@@ -37,7 +37,6 @@ public class SmartPost {
         this.postnumber = postnumber;
         this.address = address;
         this.gp = new GeoPoint(lat, lon);
-        System.out.println("Added " + this.toString());
     }
 
     public GeoPoint getGp() {
@@ -47,6 +46,22 @@ public class SmartPost {
     @Override
     public String toString() {
         return city + " " + name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostnumber() {
+        return postnumber;
+    }
+
+    public String getAddress() {
+        return address;
     }
     
 }
