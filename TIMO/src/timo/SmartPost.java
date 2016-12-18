@@ -29,14 +29,19 @@ public class SmartPost {
     }
     
     private GeoPoint gp;
-    private String name, city, postnumber, address;
+    private String name, city, postnumber, address, availability;
 
-    public SmartPost(String name, String city, String postnumber, String address, String lat, String lon) {
+    public SmartPost(String name, String city, String postnumber, String address, String availability, String lat, String lon) {
         this.name = name;
         this.city = city;
         this.postnumber = postnumber;
         this.address = address;
+        this.availability = availability;
         this.gp = new GeoPoint(lat, lon);
+    }
+
+    public String getAvailability() {
+        return availability;
     }
 
     public GeoPoint getGp() {

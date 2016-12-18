@@ -57,9 +57,10 @@ public class DataBuilder {
                 String city = e.getElementsByTagName("city").item(0).getTextContent();
                 String postnumber = e.getElementsByTagName("code").item(0).getTextContent();
                 String address = e.getElementsByTagName("address").item(0).getTextContent();
+                String availability = e.getElementsByTagName("availability").item(0).getTextContent();
                 String lon = e.getElementsByTagName("lng").item(0).getTextContent();
                 String lat = e.getElementsByTagName("lat").item(0).getTextContent();
-                allSmartPosts.add(new SmartPost(name, city, postnumber, address, lat, lon));
+                allSmartPosts.add(new SmartPost(name, city, postnumber, address, availability, lat, lon));
             }
         } catch (MalformedURLException ex) {
             Logger.getLogger(DataBuilder.class.getName()).log(Level.SEVERE, null, ex);

@@ -58,7 +58,7 @@ public class FXMLDocumentController implements Initializable {
         //<city>", 
         script += SP.getCity() + "\",";
         //Second parameter "<Additional info>", 
-        script += " \"" /*+ <Additional info here>*/ + "\",";
+        script += " \"" + SP.getAvailability() + "\",";
         //Third parameter "<color>" and close with )
         script += "\"red\"" + ")";
         //Uncomment to see the syntax
