@@ -31,7 +31,7 @@ public class DataBuilder {
     private ArrayList<SmartPost> allSmartPosts;
     
     public DataBuilder() {
-        allSmartPosts = new ArrayList<>();
+        allSmartPosts = new ArrayList<SmartPost>();
         loadSmartPostData();
     }
     private void loadSmartPostData(){
@@ -73,4 +73,27 @@ public class DataBuilder {
         return allSmartPosts;
     }
     
+    public ArrayList<String> getCities(){
+        ArrayList<String> cities = new ArrayList<String>();
+        for(int i = 0; i < allSmartPosts.size(); i++){
+            if(cities.contains(allSmartPosts.get(i).getCity())){
+                //Already in the list, continue
+                continue;
+            }else{
+                //Not in the list, add it
+                cities.add(allSmartPosts.get(i).getCity());
+            }
+        }
+        return cities;
+    }
+    
+    public ArrayList<SmartPost> getCitysSmartPosts(String city){
+        ArrayList<SmartPost> smartPosts = new ArrayList<SmartPost>();
+        for(int i = 0; i < allSmartPosts.size(); i++){
+            if(allSmartPosts.get(i).getCity().equals(city)){
+                smartPosts.add(allSmartPosts.get(i));
+            }
+        }
+        return smartPosts;
+    }
 }
