@@ -21,6 +21,15 @@ abstract public class Package {
         this.sent = false;
     }
 
+    protected Package(Package copy) {
+        this.item = copy.getItem();
+        this.start = copy.getStart();
+        this.destination = copy.getDestination();
+        this.sent = copy.isSent();
+    }
+    
+    abstract public Package getCopy();
+
     public Object getItem() {
         return item;
     }
@@ -46,6 +55,18 @@ abstract public class Package {
     
     public void send(){
         sent = true;
+    }
+
+    public void setItem(Object item) {
+        this.item = item;
+    }
+
+    public void setStart(SmartPost start) {
+        this.start = start;
+    }
+
+    public void setDestination(SmartPost destination) {
+        this.destination = destination;
     }
     
     abstract public String getCategory();

@@ -14,6 +14,15 @@ public class PackageSecondCategory extends Package{
     public PackageSecondCategory(Object item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
+    
+    private PackageSecondCategory(Package copy){
+        super(copy);
+    }
+    
+    @Override
+    public Package getCopy() {
+        return new PackageSecondCategory(this);
+    }
 
     @Override
     public String getCategory() {

@@ -14,6 +14,15 @@ public class PackageThirdCategory extends Package{
     public PackageThirdCategory(Object item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
+    
+    private PackageThirdCategory(Package copy){
+        super(copy);
+    }
+    
+    @Override
+    public Package getCopy() {
+        return new PackageThirdCategory(this);
+    }
 
     @Override
     public String getCategory() {

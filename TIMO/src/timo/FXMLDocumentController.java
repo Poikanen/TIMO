@@ -80,7 +80,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleCreatePacket(ActionEvent event) {
         
-        storage.addPackage(new PackageFirstCategory(new Object(false), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue()));
+        Package tmpPkg = cbPackage.getValue().getCopy();
+        tmpPkg.setItem(new Object(false));
+        tmpPkg.setStart(cbStartSmartPost.getValue());
+        tmpPkg.setDestination(cbDestinationSmartPost.getValue());
+        
+        storage.addPackage(tmpPkg);
     }
 
     @FXML

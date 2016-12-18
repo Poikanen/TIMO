@@ -14,6 +14,15 @@ public class PackageFirstCategory extends Package{
     public PackageFirstCategory(Object item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
+    
+    private PackageFirstCategory(Package copy){
+        super(copy);
+    }
+    
+    @Override
+    public Package getCopy() {
+        return new PackageFirstCategory(this);
+    }
 
     @Override
     public String getCategory() {
@@ -24,5 +33,4 @@ public class PackageFirstCategory extends Package{
     public String toString() {
         return "1";
     }
-    
 }
