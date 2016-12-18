@@ -19,5 +19,10 @@ public class PackageThirdCategory extends Package{
     public String getCategory() {
         return "3";
     }
+
+    @Override
+    public String toString() {
+        return "3";
+    }
     
 }
