@@ -9,10 +9,10 @@ package timo;
  *
  * @author Toivo
  */
-public class Object {
-    boolean fragile;
-
-    public Object(boolean fragile) {
-        this.fragile = fragile;
+public class PackageFirstClass extends Package{
+    
+    public PackageFirstClass(Object item, SmartPost start, SmartPost destination) {
+        super(item, start, destination);
     }
+    
 }

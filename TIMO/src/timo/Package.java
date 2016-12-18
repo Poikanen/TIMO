@@ -12,11 +12,13 @@ package timo;
 abstract public class Package {
     private Object item;
     private SmartPost start, destination;
+    private boolean sent;
 
     public Package(Object item, SmartPost start, SmartPost destination) {
         this.item = item;
         this.start = start;
         this.destination = destination;
+        this.sent = false;
     }
 
     public Object getItem() {
@@ -29,5 +31,20 @@ abstract public class Package {
 
     public SmartPost getDestination() {
         return destination;
-    }    
+    }
+    
+    public SmartPost getLocation(){
+        if(sent){
+            return destination;
+        }
+        return start;
+    }
+
+    public boolean isSent() {
+        return sent;
+    }
+    
+    public void send(){
+        sent = true;
+    }
 }
