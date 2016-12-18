@@ -27,7 +27,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<?> cbItem;
     @FXML
-    private ComboBox<?> cbPacket;
+    private ComboBox<Package> cbPackage;
     @FXML
     private ComboBox<String> cbStartCity;
     @FXML
@@ -43,11 +43,17 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         wvMap.getEngine().load(getClass().getResource("index.html").toExternalForm());
+        
         db = new DataBuilder();
         storage = Storage.getInstance();
+        
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
         cbStartCity.getItems().addAll(db.getCities());
         cbDestinationCity.getItems().addAll(db.getCities());
+        
+        cbPackage.getItems().add(new PackageFirstCategory(null, null, null));
+        cbPackage.getItems().add(new PackageSecondCategory(null, null, null));
+        cbPackage.getItems().add(new PackageThirdCategory(null, null, null));
     }
 
     @FXML

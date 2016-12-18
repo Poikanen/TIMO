@@ -49,4 +49,7 @@ abstract public class Package {
     }
     
     abstract public String getCategory();
+    
+    @Override
+    abstract public String toString();
 }

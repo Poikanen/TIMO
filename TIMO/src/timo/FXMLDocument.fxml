@@ -13,7 +13,7 @@
       <ComboBox fx:id="cbSmartPost" layoutX="14.0" layoutY="460.0" prefWidth="150.0" promptText="Valitse SmartPost" />
       <Button layoutX="173.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
       <ComboBox fx:id="cbItem" layoutX="305.0" layoutY="23.0" prefWidth="150.0" promptText="Esine" />
-      <ComboBox fx:id="cbPacket" layoutX="305.0" layoutY="61.0" prefWidth="150.0" promptText="Postitusluokka" />
+      <ComboBox fx:id="cbPackage" layoutX="305.0" layoutY="61.0" prefWidth="150.0" promptText="Postitusluokka" />
       <ComboBox fx:id="cbStartCity" layoutX="305.0" layoutY="102.0" onAction="#handleStartCityChange" prefWidth="150.0" promptText="Lähtökaupunki" />
       <ComboBox fx:id="cbDestinationCity" layoutX="305.0" layoutY="210.0" onAction="#handleDestinationCityChange" prefWidth="150.0" promptText="Kohdekaupunki" />
       <ComboBox fx:id="cbStartSmartPost" layoutX="305.0" layoutY="137.0" prefWidth="150.0" promptText="SmartPost" />
