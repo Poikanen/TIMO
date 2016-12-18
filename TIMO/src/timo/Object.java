@@ -10,5 +10,5 @@ package timo;
  * @author Toivo
  */
 public class Object {
-    
+    boolean fragile;
 }

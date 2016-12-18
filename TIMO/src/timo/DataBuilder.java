@@ -71,6 +71,5 @@ public class DataBuilder {
 
     public ArrayList<SmartPost> getAllSmartPosts() {
         return allSmartPosts;
-    }
-    
+    }    
 }

@@ -39,6 +39,17 @@ public class SmartPost {
         this.availability = availability;
         this.gp = new GeoPoint(lat, lon);
     }
+    
+    public SmartPost(String name, String city, String postnumber, String address, String availability, GeoPoint gp) {
+        this.name = name;
+        this.city = city;
+        this.postnumber = postnumber;
+        this.address = address;
+        this.availability = availability;
+        this.gp = gp;
+    }
+    
+    
 
     public String getAvailability() {
         return availability;

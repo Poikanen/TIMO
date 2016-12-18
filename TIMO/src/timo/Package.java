@@ -9,6 +9,25 @@ package timo;
  *
  * @author Toivo
  */
-public class Package {
-    
+abstract public class Package {
+    private Object item;
+    private SmartPost start, destination;
+
+    public Package(Object item, SmartPost start, SmartPost destination) {
+        this.item = item;
+        this.start = start;
+        this.destination = destination;
+    }
+
+    public Object getItem() {
+        return item;
+    }
+
+    public SmartPost getStart() {
+        return start;
+    }
+
+    public SmartPost getDestination() {
+        return destination;
+    }    
 }
