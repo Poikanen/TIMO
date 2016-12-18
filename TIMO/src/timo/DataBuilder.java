@@ -86,4 +86,14 @@ public class DataBuilder {
         }
         return cities;
     }
+    
+    public ArrayList<SmartPost> getCitysSmartPosts(String city){
+        ArrayList<SmartPost> smartPosts = new ArrayList<SmartPost>();
+        for(int i = 0; i < allSmartPosts.size(); i++){
+            if(allSmartPosts.get(i).getCity().equals(city)){
+                smartPosts.add(allSmartPosts.get(i));
+            }
+        }
+        return smartPosts;
+    }
 }

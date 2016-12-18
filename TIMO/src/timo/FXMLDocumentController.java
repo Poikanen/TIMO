@@ -30,11 +30,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<String> cbStartCity;
     @FXML
-    private ComboBox<?> cbStartSmartPost;
+    private ComboBox<SmartPost> cbStartSmartPost;
     @FXML
     private ComboBox<String> cbDestinationCity;
     @FXML
-    private ComboBox<?> cbDestinationSmartPost;
+    private ComboBox<SmartPost> cbDestinationSmartPost;
     
     private DataBuilder db;
     
@@ -81,5 +81,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleEmptyPaths(ActionEvent event) {
         wvMap.getEngine().executeScript("document.deletePaths()");
+    }
+
+    @FXML
+    private void handleStartCityChange(ActionEvent event) {
+        cbStartSmartPost.getItems().clear();
+        cbStartSmartPost.getItems().addAll(db.getCitysSmartPosts(cbStartCity.getValue()));
+    }
+
+    @FXML
+    private void handleDestinationCityChange(ActionEvent event) {
+        cbDestinationSmartPost.getItems().clear();
+        cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
 }
