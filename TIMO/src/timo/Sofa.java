@@ -9,10 +9,10 @@ package timo;
  *
  * @author Toivo
  */
-public class Object {
-    boolean fragile;
-
-    public Object(boolean fragile) {
-        this.fragile = fragile;
+public class Sofa extends Item{
+    
+    public Sofa() {
+        super(false, "Sofa");
     }
+    
 }

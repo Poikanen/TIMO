@@ -11,8 +11,17 @@ package timo;
  */
 public class PackageFirstCategory extends Package{
     
-    public PackageFirstCategory(Object item, SmartPost start, SmartPost destination) {
+    public PackageFirstCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
+    }
+    
+    private PackageFirstCategory(Package copy){
+        super(copy);
+    }
+    
+    @Override
+    public Package getCopy() {
+        return new PackageFirstCategory(this);
     }
 
     @Override
@@ -24,5 +33,10 @@ public class PackageFirstCategory extends Package{
     public String toString() {
         return "1";
     }
-    
+
+    @Override
+    public String send() {
+        this.sent = true;
+        return "Paketti lähetetty.\n";
+    }
 }

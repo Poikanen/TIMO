@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.web.WebView;
 
 /**
@@ -25,7 +26,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<SmartPost> cbSmartPost;
     @FXML
-    private ComboBox<?> cbItem;
+    private ComboBox<Item> cbItem;
     @FXML
     private ComboBox<Package> cbPackage;
     @FXML
@@ -39,6 +40,8 @@ public class FXMLDocumentController implements Initializable {
     
     private DataBuilder db;
     private Storage storage;
+    @FXML
+    private TextArea textInfoBox;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,9 +54,15 @@ public class FXMLDocumentController implements Initializable {
         cbStartCity.getItems().addAll(db.getCities());
         cbDestinationCity.getItems().addAll(db.getCities());
         
-        cbPackage.getItems().add(new PackageFirstCategory(null, null, null));
-        cbPackage.getItems().add(new PackageSecondCategory(null, null, null));
-        cbPackage.getItems().add(new PackageThirdCategory(null, null, null));
+        cbPackage.getItems().add(new PackageFirstCategory(new Item(), new SmartPost(), new SmartPost()));
+        cbPackage.getItems().add(new PackageSecondCategory(new Item(), new SmartPost(), new SmartPost()));
+        cbPackage.getItems().add(new PackageThirdCategory(new Item(), new SmartPost(), new SmartPost()));
+        
+        cbItem.getItems().add(new Item());
+        cbItem.getItems().add(new Sofa());
+        cbItem.getItems().add(new Laptop());
+        cbItem.getItems().add(new Teacup());
+        cbItem.getItems().add(new Plushie());
     }
 
     @FXML
@@ -75,17 +84,24 @@ public class FXMLDocumentController implements Initializable {
         //Uncomment to see the syntax
         //System.out.println(script);
         wvMap.getEngine().executeScript(script);
+        textInfoBox.setText("SmartPost lisätty.\n");
     }
 
     @FXML
     private void handleCreatePacket(ActionEvent event) {
+        Package tmpPkg = cbPackage.getValue().getCopy();
+        tmpPkg.setItem(new Item(cbItem.getValue()));
+        tmpPkg.setStart(new SmartPost(cbStartSmartPost.getValue()));
+        tmpPkg.setDestination(new SmartPost(cbDestinationSmartPost.getValue()));
         
-        storage.addPackage(new PackageFirstCategory(new Object(false), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue()));
+        storage.addPackage(tmpPkg);
+        textInfoBox.setText("Paketti luotu.\n");
     }
 
     @FXML
     private void handleSendPackets(ActionEvent event) {
-        ArrayList<Package> tmpToSend = storage.sendPackages();
+        ArrayList<Package> tmpToSend = storage.getUnsentPackages();
+        textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
             String script = "document.createPath(";
             //Get coordinates as String-array
@@ -103,16 +119,15 @@ public class FXMLDocumentController implements Initializable {
                 script += "\"blue\", ";
                 //Class
                 script += "2)";
-            
             }else if(tmpToSend.get(i).getCategory().equals("3")){
                 //Color
                 script += "\"red\", ";
                 //Class
                 script += "3)";
-            
             }else{
                 //Throw error or something
             }
+            textInfoBox.setText(tmpToSend.get(i).send() + textInfoBox.getText());
             wvMap.getEngine().executeScript(script);
         }
     }
