@@ -10,11 +10,11 @@ package timo;
  * @author Toivo
  */
 abstract public class Package {
-    private Object item;
-    private SmartPost start, destination;
-    private boolean sent;
+    protected Item item;
+    protected SmartPost start, destination;
+    protected boolean sent;
 
-    public Package(Object item, SmartPost start, SmartPost destination) {
+    public Package(Item item, SmartPost start, SmartPost destination) {
         this.item = item;
         this.start = start;
         this.destination = destination;
@@ -22,15 +22,23 @@ abstract public class Package {
     }
 
     protected Package(Package copy) {
-        this.item = copy.getItem();
-        this.start = copy.getStart();
-        this.destination = copy.getDestination();
+        //new **** to avoid problems with copying only references
+        this.item = new Item(copy.getItem());
+        this.start = new SmartPost(copy.getStart());
+        this.destination = new SmartPost(copy.getDestination());
         this.sent = copy.isSent();
+    }
+    
+    public Package(){
+        this.item = new Item();
+        this.start = new SmartPost();
+        this.destination = new SmartPost();
+        this.sent = false;
     }
     
     abstract public Package getCopy();
 
-    public Object getItem() {
+    public Item getItem() {
         return item;
     }
 
@@ -53,11 +61,9 @@ abstract public class Package {
         return sent;
     }
     
-    public void send(){
-        sent = true;
-    }
+    abstract public String send();
 
-    public void setItem(Object item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 

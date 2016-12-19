@@ -11,7 +11,7 @@ package timo;
  */
 public class PackageThirdCategory extends Package{
 
-    public PackageThirdCategory(Object item, SmartPost start, SmartPost destination) {
+    public PackageThirdCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
     
@@ -32,6 +32,17 @@ public class PackageThirdCategory extends Package{
     @Override
     public String toString() {
         return "3";
+    }
+
+    @Override
+    public String send() {
+        String toReturn = "Paketti lähetetty.\n";
+        this.item.throwAround();
+        this.sent = true;
+        if(this.item.isBroken()){
+            toReturn += "Ikävä kyllä TIMO-mies rikkoi paketin matkalla.\n";
+        }
+        return toReturn;
     }
     
 }

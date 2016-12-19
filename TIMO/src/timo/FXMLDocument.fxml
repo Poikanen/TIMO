@@ -21,5 +21,6 @@
       <Button layoutX="305.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleCreatePacket" text="Luo paketti" />
       <Button layoutX="391.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
       <Button layoutX="276.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
+      <TextArea fx:id="textInfoBox" layoutX="305.0" layoutY="335.0" prefHeight="104.0" prefWidth="208.0" />
    </children>
 </AnchorPane>
