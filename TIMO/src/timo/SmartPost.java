@@ -49,7 +49,23 @@ public class SmartPost {
         this.gp = gp;
     }
     
+    public SmartPost(SmartPost copy){
+        this.name = copy.name;
+        this.city = copy.city;
+        this.postnumber = copy.postnumber;
+        this.address = copy.address;
+        this.availability = copy.availability;
+        this.gp = copy.gp;
+    }
     
+    public SmartPost(){
+        this.name = "";
+        this.city = "";
+        this.postnumber = "";
+        this.address = "";
+        this.availability = "";
+        this.gp = new GeoPoint("", "");
+    }
 
     public String getAvailability() {
         return availability;

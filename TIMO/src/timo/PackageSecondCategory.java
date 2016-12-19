@@ -11,8 +11,17 @@ package timo;
  */
 public class PackageSecondCategory extends Package{
 
-    public PackageSecondCategory(Object item, SmartPost start, SmartPost destination) {
+    public PackageSecondCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
+    }
+    
+    private PackageSecondCategory(Package copy){
+        super(copy);
+    }
+    
+    @Override
+    public Package getCopy() {
+        return new PackageSecondCategory(this);
     }
 
     @Override
@@ -23,6 +32,12 @@ public class PackageSecondCategory extends Package{
     @Override
     public String toString() {
         return "2";
+    }
+
+    @Override
+    public String send() {
+        this.sent = true;
+        return "Paketti lähetetty.\n";
     }
     
 }
