@@ -77,6 +77,8 @@ abstract public class Package {
     
     abstract public String getCategory();
     
+    abstract public String getColor();
+    
     @Override
     abstract public String toString();
 }

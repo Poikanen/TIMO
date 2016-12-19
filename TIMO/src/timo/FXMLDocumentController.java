@@ -109,26 +109,11 @@ public class FXMLDocumentController implements Initializable {
             script += "\"" + tmpToSend.get(i).getStart().getGp().getLon() + "\", ";
             script += "\"" + tmpToSend.get(i).getDestination().getGp().getLat() + "\", ";
             script += "\"" + tmpToSend.get(i).getDestination().getGp().getLon() + "\"], ";
-            if(tmpToSend.get(i).getCategory().equals("1")){
-                //Color
-                script += "\"green\", ";
-                //Class
-                script += "1)";
-            }else if(tmpToSend.get(i).getCategory().equals("2")){
-                //Color
-                script += "\"blue\", ";
-                //Class
-                script += "2)";
-            }else if(tmpToSend.get(i).getCategory().equals("3")){
-                //Color
-                script += "\"red\", ";
-                //Class
-                script += "3)";
-            }else{
-                //Throw error or something
-            }
-            textInfoBox.setText(tmpToSend.get(i).send() + textInfoBox.getText());
+            script += "\"" + tmpToSend.get(i).getColor() + "\", ";
+            script += tmpToSend.get(i).getCategory() + ")";
+            System.out.println(script);
             wvMap.getEngine().executeScript(script);
+            textInfoBox.setText(tmpToSend.get(i).send() + textInfoBox.getText());
         }
     }
 

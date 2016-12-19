@@ -44,5 +44,9 @@ public class PackageThirdCategory extends Package{
         }
         return toReturn;
     }
-    
+
+    @Override
+    public String getColor() {
+        return "red";
+    }
 }

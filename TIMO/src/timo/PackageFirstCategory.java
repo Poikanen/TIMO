@@ -39,4 +39,9 @@ public class PackageFirstCategory extends Package{
         this.sent = true;
         return "Paketti lähetetty.\n";
     }
+
+    @Override
+    public String getColor() {
+        return "green";
+    }
 }
