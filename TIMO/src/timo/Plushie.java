@@ -9,10 +9,8 @@ package timo;
  *
  * @author Toivo
  */
-public class PackageFirstClass extends Package{
-    
-    public PackageFirstClass(Object item, SmartPost start, SmartPost destination) {
-        super(item, start, destination);
+public class Plushie extends Item{
+    public Plushie(){
+        super(false, "Plushie");
     }
-    
 }

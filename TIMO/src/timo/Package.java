@@ -10,18 +10,35 @@ package timo;
  * @author Toivo
  */
 abstract public class Package {
-    private Object item;
-    private SmartPost start, destination;
-    private boolean sent;
+    protected Item item;
+    protected SmartPost start, destination;
+    protected boolean sent;
 
-    public Package(Object item, SmartPost start, SmartPost destination) {
+    public Package(Item item, SmartPost start, SmartPost destination) {
         this.item = item;
         this.start = start;
         this.destination = destination;
         this.sent = false;
     }
 
-    public Object getItem() {
+    protected Package(Package copy) {
+        //new **** to avoid problems with copying only references
+        this.item = new Item(copy.getItem());
+        this.start = new SmartPost(copy.getStart());
+        this.destination = new SmartPost(copy.getDestination());
+        this.sent = copy.isSent();
+    }
+    
+    public Package(){
+        this.item = new Item();
+        this.start = new SmartPost();
+        this.destination = new SmartPost();
+        this.sent = false;
+    }
+    
+    abstract public Package getCopy();
+
+    public Item getItem() {
         return item;
     }
 
@@ -44,7 +61,22 @@ abstract public class Package {
         return sent;
     }
     
-    public void send(){
-        sent = true;
+    abstract public String send();
+
+    public void setItem(Item item) {
+        this.item = item;
     }
+
+    public void setStart(SmartPost start) {
+        this.start = start;
+    }
+
+    public void setDestination(SmartPost destination) {
+        this.destination = destination;
+    }
+    
+    abstract public String getCategory();
+    
+    @Override
+    abstract public String toString();
 }
