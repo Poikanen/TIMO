@@ -73,4 +73,8 @@ public class Storage {
         }
         return log;
     }
+    
+    public void writeLogToFile(){
+        //TODO
+    }
 }
