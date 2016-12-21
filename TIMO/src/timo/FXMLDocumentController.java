@@ -133,4 +133,15 @@ public class FXMLDocumentController implements Initializable {
         cbDestinationSmartPost.getItems().clear();
         cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
+
+    @FXML
+    private void displayClassInfo(ActionEvent event) {
+        if(cbPackage.getValue().getCategory().equals("1")){
+            textInfoBox.setText("1. luokan paketit kulkevat nopeasti alle 150km päähän.\n");
+        }else if(cbPackage.getValue().getCategory().equals("2")){
+            textInfoBox.setText("2. luokan paketit kulkevat luotettavasti kaikkialle Suomeen.\n");
+        }else if(cbPackage.getValue().getCategory().equals("3")){
+            textInfoBox.setText("3. luokan paketteja käytetään TIMOjen stressinpurkuun joten sisäsltö saattaa hajota matkalla.\n");
+        }
+    }
 }
