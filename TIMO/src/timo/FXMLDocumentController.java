@@ -100,7 +100,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleSendPackets(ActionEvent event) {
-        ArrayList<Package> tmpToSend = storage.getUnsentPackages();
+        ArrayList<Package> tmpToSend = storage.sendPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
             String script = "document.createPath(";
@@ -109,26 +109,10 @@ public class FXMLDocumentController implements Initializable {
             script += "\"" + tmpToSend.get(i).getStart().getGp().getLon() + "\", ";
             script += "\"" + tmpToSend.get(i).getDestination().getGp().getLat() + "\", ";
             script += "\"" + tmpToSend.get(i).getDestination().getGp().getLon() + "\"], ";
-            if(tmpToSend.get(i).getCategory().equals("1")){
-                //Color
-                script += "\"green\", ";
-                //Class
-                script += "1)";
-            }else if(tmpToSend.get(i).getCategory().equals("2")){
-                //Color
-                script += "\"blue\", ";
-                //Class
-                script += "2)";
-            }else if(tmpToSend.get(i).getCategory().equals("3")){
-                //Color
-                script += "\"red\", ";
-                //Class
-                script += "3)";
-            }else{
-                //Throw error or something
-            }
-            textInfoBox.setText(tmpToSend.get(i).send() + textInfoBox.getText());
+            script += "\"" + tmpToSend.get(i).getColor() + "\", ";
+            script += tmpToSend.get(i).getCategory() + ")";
             wvMap.getEngine().executeScript(script);
+            textInfoBox.setText(tmpToSend.get(i).getSendMessage() + textInfoBox.getText());
         }
     }
 
@@ -147,5 +131,21 @@ public class FXMLDocumentController implements Initializable {
     private void handleDestinationCityChange(ActionEvent event) {
         cbDestinationSmartPost.getItems().clear();
         cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
+    }
+
+    @FXML
+    private void displayClassInfo(ActionEvent event) {
+        if(cbPackage.getValue().getCategory().equals("1")){
+            textInfoBox.setText("1. luokan paketit kulkevat nopeasti alle 150km päähän.\n");
+        }else if(cbPackage.getValue().getCategory().equals("2")){
+            textInfoBox.setText("2. luokan paketit kulkevat luotettavasti kaikkialle Suomeen.\n");
+        }else if(cbPackage.getValue().getCategory().equals("3")){
+            textInfoBox.setText("3. luokan paketteja käytetään TIMOjen stressinpurkuun joten sisäsltö saattaa hajota matkalla.\n");
+        }
+    }
+
+    @FXML
+    private void displayLog(ActionEvent event) {
+        textInfoBox.setText(storage.getLog());
     }
 }
