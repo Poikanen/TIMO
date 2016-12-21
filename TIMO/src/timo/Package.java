@@ -13,12 +13,14 @@ abstract public class Package {
     protected Item item;
     protected SmartPost start, destination;
     protected boolean sent;
+    protected String sendMessage;
 
     public Package(Item item, SmartPost start, SmartPost destination) {
         this.item = item;
         this.start = start;
         this.destination = destination;
         this.sent = false;
+        this.sendMessage = "";
     }
 
     protected Package(Package copy) {
@@ -35,8 +37,6 @@ abstract public class Package {
         this.destination = new SmartPost();
         this.sent = false;
     }
-    
-    abstract public Package getCopy();
 
     public Item getItem() {
         return item;
@@ -61,7 +61,6 @@ abstract public class Package {
         return sent;
     }
     
-    abstract public String send();
 
     public void setItem(Item item) {
         this.item = item;
@@ -74,8 +73,18 @@ abstract public class Package {
     public void setDestination(SmartPost destination) {
         this.destination = destination;
     }
+
+    public String getSendMessage() {
+        return sendMessage;
+    }
+    
+    abstract public Package getCopy();
+    
+    abstract public boolean send();
     
     abstract public String getCategory();
+    
+    abstract public String getColor();
     
     @Override
     abstract public String toString();

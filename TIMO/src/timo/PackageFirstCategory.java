@@ -35,8 +35,25 @@ public class PackageFirstCategory extends Package{
     }
 
     @Override
-    public String send() {
+    public boolean send() {
+        //Return false if already sent
+        if(this.sent){
+            return false;
+        }
+        //Else if
+        if(this.start.getGp().getDistanceTo(this.destination.getGp()) > 150){
+            this.sent = false;
+            this.sendMessage = "Matka oli liian pitkä ja TIMO ei jaksanut loppuun saakka.\n";
+            return false;
+        }
+        //Else
         this.sent = true;
-        return "Paketti lähetetty.\n";
+        this.sendMessage = "Paketti lähetetty.\n";
+        return true;
+    }
+
+    @Override
+    public String getColor() {
+        return "green";
     }
 }

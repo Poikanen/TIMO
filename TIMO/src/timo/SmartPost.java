@@ -5,6 +5,9 @@
  */
 package timo;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+
 /**
  *
  * @author Toivo
@@ -25,6 +28,15 @@ public class SmartPost {
 
         public String getLon() {
             return lon;
+        }
+        
+        public double getDistanceTo(GeoPoint other){
+            double difLatDegree = abs(Double.parseDouble(this.getLat()) - Double.parseDouble(other.getLat()));
+            double difLonDegree = abs(Double.parseDouble(this.getLon()) - Double.parseDouble(other.getLon()));
+            double difLatKm = difLatDegree*111;
+            //Times 50 is an approximation
+            double difLonKm = difLonDegree*50;
+            return sqrt(difLatKm*difLatKm + difLonKm*difLonKm);
         }
     }
     

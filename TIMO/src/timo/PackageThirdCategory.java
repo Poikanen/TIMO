@@ -35,14 +35,22 @@ public class PackageThirdCategory extends Package{
     }
 
     @Override
-    public String send() {
-        String toReturn = "Paketti lähetetty.\n";
+    public boolean send() {
+        //Return false if already sent
+        if(this.sent){
+            return false;
+        }
+        this.sendMessage = "Paketti lähetetty.\n";
         this.item.throwAround();
         this.sent = true;
         if(this.item.isBroken()){
-            toReturn += "Ikävä kyllä TIMO-mies rikkoi paketin matkalla.\n";
+            this.sendMessage += "Ikävä kyllä TIMO-mies rikkoi paketin matkalla.\n";
         }
-        return toReturn;
+        return true;
     }
-    
+
+    @Override
+    public String getColor() {
+        return "red";
+    }
 }
