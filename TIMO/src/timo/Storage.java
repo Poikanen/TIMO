@@ -31,10 +31,10 @@ public class Storage {
         allPackages.add(pkg);
     }
     
-    public ArrayList<Package> getUnsentPackages(){
+    public ArrayList<Package> sendPackages(){
         ArrayList<Package> pkgToSend = new ArrayList<Package>();
         for(int i = 0; i < allPackages.size(); i++){
-            if(!allPackages.get(i).isSent()){
+            if(allPackages.get(i).send()){
                 pkgToSend.add(allPackages.get(i));
             }
         }

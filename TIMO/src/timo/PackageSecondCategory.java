@@ -35,9 +35,14 @@ public class PackageSecondCategory extends Package{
     }
 
     @Override
-    public String send() {
+    public boolean send() {
+        //Return false if already sent
+        if(this.sent){
+            return false;
+        }
         this.sent = true;
-        return "Paketti lähetetty.\n";
+        this.sendMessage = "Paketti lähetetty.\n";
+        return true;
     }
 
     @Override

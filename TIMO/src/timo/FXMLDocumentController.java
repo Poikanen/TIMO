@@ -100,7 +100,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleSendPackets(ActionEvent event) {
-        ArrayList<Package> tmpToSend = storage.getUnsentPackages();
+        ArrayList<Package> tmpToSend = storage.sendPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
             String script = "document.createPath(";
@@ -113,7 +113,7 @@ public class FXMLDocumentController implements Initializable {
             script += tmpToSend.get(i).getCategory() + ")";
             System.out.println(script);
             wvMap.getEngine().executeScript(script);
-            textInfoBox.setText(tmpToSend.get(i).send() + textInfoBox.getText());
+            textInfoBox.setText(tmpToSend.get(i).getSendMessage() + textInfoBox.getText());
         }
     }
 
