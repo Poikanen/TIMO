@@ -5,7 +5,12 @@
  */
 package timo;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -72,5 +77,15 @@ public class Storage {
             log += "km\n";
         }
         return log;
+    }
+    
+    public void writeLogToFile(){
+        try {
+            BufferedWriter write = new BufferedWriter(new FileWriter("istunto.log"));
+            write.write(this.getLog());
+            write.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
