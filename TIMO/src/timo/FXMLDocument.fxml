@@ -10,17 +10,18 @@
 <AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.FXMLDocumentController">
    <children>
       <WebView fx:id="wvMap" prefHeight="445.0" prefWidth="276.0" />
-      <ComboBox fx:id="cbSmartPost" layoutX="14.0" layoutY="460.0" prefWidth="150.0" promptText="Valitse SmartPost" />
-      <Button layoutX="173.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
+      <ComboBox fx:id="cbSmartPost" layoutX="7.0" layoutY="460.0" prefWidth="150.0" promptText="Valitse SmartPost" />
+      <Button layoutX="163.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
       <ComboBox fx:id="cbItem" layoutX="305.0" layoutY="23.0" prefWidth="150.0" promptText="Esine" />
-      <ComboBox fx:id="cbPackage" layoutX="305.0" layoutY="61.0" prefWidth="150.0" promptText="Postitusluokka" />
+      <ComboBox fx:id="cbPackage" layoutX="305.0" layoutY="61.0" onAction="#displayClassInfo" prefWidth="150.0" promptText="Postitusluokka" />
       <ComboBox fx:id="cbStartCity" layoutX="305.0" layoutY="102.0" onAction="#handleStartCityChange" prefWidth="150.0" promptText="Lähtökaupunki" />
       <ComboBox fx:id="cbDestinationCity" layoutX="305.0" layoutY="210.0" onAction="#handleDestinationCityChange" prefWidth="150.0" promptText="Kohdekaupunki" />
       <ComboBox fx:id="cbStartSmartPost" layoutX="305.0" layoutY="137.0" prefWidth="150.0" promptText="SmartPost" />
       <ComboBox fx:id="cbDestinationSmartPost" layoutX="305.0" layoutY="240.0" prefWidth="150.0" promptText="SmartPost" />
       <Button layoutX="305.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleCreatePacket" text="Luo paketti" />
-      <Button layoutX="391.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
-      <Button layoutX="276.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
+      <Button layoutX="356.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
+      <Button layoutX="251.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
       <TextArea fx:id="textInfoBox" layoutX="305.0" layoutY="335.0" prefHeight="104.0" prefWidth="208.0" />
+      <Button layoutX="455.0" layoutY="460.0" mnemonicParsing="false" onAction="#displayLog" text="Log" />
    </children>
 </AnchorPane>
