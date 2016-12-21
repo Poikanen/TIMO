@@ -111,7 +111,6 @@ public class FXMLDocumentController implements Initializable {
             script += "\"" + tmpToSend.get(i).getDestination().getGp().getLon() + "\"], ";
             script += "\"" + tmpToSend.get(i).getColor() + "\", ";
             script += tmpToSend.get(i).getCategory() + ")";
-            System.out.println(script);
             wvMap.getEngine().executeScript(script);
             textInfoBox.setText(tmpToSend.get(i).getSendMessage() + textInfoBox.getText());
         }
@@ -143,5 +142,10 @@ public class FXMLDocumentController implements Initializable {
         }else if(cbPackage.getValue().getCategory().equals("3")){
             textInfoBox.setText("3. luokan paketteja käytetään TIMOjen stressinpurkuun joten sisäsltö saattaa hajota matkalla.\n");
         }
+    }
+
+    @FXML
+    private void displayLog(ActionEvent event) {
+        textInfoBox.setText(storage.getLog());
     }
 }
