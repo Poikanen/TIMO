@@ -34,8 +34,8 @@ public class SmartPost {
             double difLatDegree = abs(Double.parseDouble(this.getLat()) - Double.parseDouble(other.getLat()));
             double difLonDegree = abs(Double.parseDouble(this.getLon()) - Double.parseDouble(other.getLon()));
             double difLatKm = difLatDegree*111;
-            //Times 49 is an approximation
-            double difLonKm = difLonDegree*49;
+            //Times 50 is an approximation
+            double difLonKm = difLonDegree*50;
             return sqrt(difLatKm*difLatKm + difLonKm*difLonKm);
         }
     }
