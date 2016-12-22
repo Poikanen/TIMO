@@ -7,15 +7,91 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.FXMLDocumentController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.FXMLDocumentController">
    <children>
-      <WebView fx:id="wvMap" prefHeight="445.0" prefWidth="276.0" />
-      <ComboBox fx:id="cbSmartPost" layoutX="7.0" layoutY="460.0" prefWidth="150.0" promptText="Valitse SmartPost" />
-      <Button layoutX="163.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
-      <Button layoutX="356.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
-      <Button layoutX="251.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
-      <TextArea fx:id="textInfoBox" layoutX="305.0" layoutY="335.0" prefHeight="104.0" prefWidth="208.0" />
-      <Button layoutX="455.0" layoutY="460.0" mnemonicParsing="false" onAction="#displayLog" text="Log" />
-      <Button layoutX="350.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleOpenAddPackageWindow" text="Luo paketti" />
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="80.0">
+              <tabs>
+                <Tab text="TIMO">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="567.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="520.2923583984375" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="200.0" prefWidth="250.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="89.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="502.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                    <WebView fx:id="wvMap" prefHeight="537.0" prefWidth="369.0" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="LOKI">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
+                              <Button mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
+                              <Button mnemonicParsing="false" onAction="#displayLog" text="Log" />
+                              <Button mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
+                              <ComboBox fx:id="cbSmartPost" prefWidth="150.0" promptText="Valitse SmartPost" />
+                              <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" />
+                              <Button mnemonicParsing="false" onAction="#handleOpenAddPackageWindow" text="Luo paketti" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
