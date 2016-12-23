@@ -36,10 +36,10 @@ public class Storage {
         allPackages.add(pkg);
     }
     
-    public ArrayList<Package> sendPackages(){
+    public ArrayList<Package> getUnsentPackages(){
         ArrayList<Package> pkgToDraw = new ArrayList<Package>();
         for(int i = 0; i < allPackages.size(); i++){
-            if(allPackages.get(i).send()){
+            if(!allPackages.get(i).isSent()){
                 pkgToDraw.add(allPackages.get(i));
             }
         }
@@ -107,4 +107,9 @@ public class Storage {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ArrayList<Package> getAllPackages() {
+        return allPackages;
+    }
+    
 }
