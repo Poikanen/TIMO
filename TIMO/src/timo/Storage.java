@@ -47,31 +47,50 @@ public class Storage {
     }
     
     public String getLog(){
+        
+        //Pakettiluokka
+        //Lähtö
+        //Kohde
+        //Lähetetty
+        //(Missä nyt)
+        //Esine:
+        //  Nimi
+        //      Rikkoutuva
+        //  Rikki?
+        
         String log = "";
         log += "Paketteja yhteensä: " + String.valueOf(allPackages.size()) + "\n";
         for(int i = 0; i < allPackages.size(); i++){
-            //Sisällä oleva esine
-            log += "\n" + allPackages.get(i).item.getName() + "\n";
+            //Pakettiluokka
+            log += "Pakettiluokka: " + allPackages.get(i).getCategory() + "\n";
+            //Lähtö
+            log += "Lähtö: " + allPackages.get(i).getStart().toString() + "\n";
+            //Kohde
+            log += "Kohde: " + allPackages.get(i).getDestination().toString() + "\n";
+            
             //Onko lähetetty
             if(allPackages.get(i).isSent()){
-                log += "Paketti on lähetetty.\n";
+                log += "Lähetetty.\n";
             }else{
-                log += "Pakettia ei vielä ole lähetetty.\n";
+                log += "Ei lähetetty.\n";
             }
+            //Sijainti nyt
+            //log += "Sijainti nyt: " + allPackages.get(i).getLocation().toString() + "\n";
+            //Sisällä oleva esine
+            //Nimi
+            log += allPackages.get(i).item.getName() + "\n";
+            //Rikkoutuva
+            log += "Rikkoutuva: " + allPackages.get(i).getItem().isFragile();
+            //Rikki?
+            log += "Rikki: " + allPackages.get(i).getItem().isBroken();
             //Rikki, ehjä, rikkoutuva
-            if(allPackages.get(i).item.isBroken()){
+            /*if(allPackages.get(i).item.isBroken()){
                 log += "Rikki\n";
             }else{
                 if(allPackages.get(i).item.isFragile()){
                     log += "Särkyvää, ehjä\n";
                 }
-            }
-            //Lähtö
-            log += "Lähtö: " + allPackages.get(i).getStart().toString() + "\n";
-            //Kohde
-            log += "Kohde: " + allPackages.get(i).getDestination().toString() + "\n";
-            //Sijainti nyt
-            log += "Sijainti nyt: " + allPackages.get(i).getLocation().toString() + "\n";
+            }*/
             //Matkan pituus
             log += "Matkan pituus: " + String.valueOf(Math.round(allPackages.get(i).getStart().getGp().getDistanceTo(allPackages.get(i).getDestination().getGp())));
             log += "km\n";
