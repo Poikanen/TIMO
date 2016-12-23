@@ -11,6 +11,6 @@ package timo;
  */
 public class Plushie extends Item{
     public Plushie(){
-        super(false, "Plushie");
+        super(false, "Plushie",10.0d, 7.0d, 7.0d, 150.0d);
     }
 }

@@ -14,6 +14,7 @@ abstract public class Package {
     protected SmartPost start, destination;
     protected boolean sent;
     protected String sendMessage;
+    protected String status; // "storage", "delivery", "destination"
 
     public Package(Item item, SmartPost start, SmartPost destination) {
         this.item = item;
@@ -21,6 +22,7 @@ abstract public class Package {
         this.destination = destination;
         this.sent = false;
         this.sendMessage = "";
+        this.status = "storage";
     }
 
     public Package(Item item, SmartPost start, SmartPost destination, boolean sent) {
@@ -37,6 +39,7 @@ abstract public class Package {
         this.start = new SmartPost(copy.getStart());
         this.destination = new SmartPost(copy.getDestination());
         this.sent = copy.isSent();
+        this.status = copy.getStatus();
     }
     
     public Package(){
@@ -44,6 +47,7 @@ abstract public class Package {
         this.start = new SmartPost();
         this.destination = new SmartPost();
         this.sent = false;
+        this.status = "storage";
     }
 
     public Item getItem() {
@@ -64,6 +68,15 @@ abstract public class Package {
         }
         return start;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 
     public boolean isSent() {
         return sent;

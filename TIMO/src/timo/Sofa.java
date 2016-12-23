@@ -12,7 +12,7 @@ package timo;
 public class Sofa extends Item{
     
     public Sofa() {
-        super(false, "Sofa");
+        super(false, "Sofa", 320.0d, 90.0d, 90d, 60000.0d);
     }
     
 }
