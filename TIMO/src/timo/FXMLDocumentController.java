@@ -130,7 +130,7 @@ public class FXMLDocumentController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPackageWindow.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene((Pane)loader.load()));
-            loader.<AddPackageWindowController>getController().initData(db);
+            loader.<AddItemWindowController>getController().initData(cbItem);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
