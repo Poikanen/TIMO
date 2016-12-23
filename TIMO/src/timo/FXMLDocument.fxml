@@ -249,7 +249,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="LOG">
+                <Tab onSelectionChanged="#updateLog" text="LOG">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -289,7 +289,7 @@
                                           </TextField>
                                        </children>
                                     </GridPane>
-                                    <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <TextArea fx:id="logTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>

@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -56,6 +57,8 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton rbSecondsClass;
     @FXML
     private ComboBox<?> cbPacket;
+    @FXML
+    private TextArea logTextArea;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,6 +100,7 @@ public class FXMLDocumentController implements Initializable {
         textInfoBox.setText("SmartPost lisätty.\n");
     }
 
+    @FXML
     private void handleSendPacket(ActionEvent event) {
         ArrayList<Package> tmpToSend = storage.sendPackages();
         textInfoBox.setText("");
@@ -171,5 +175,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleSendAllPackets(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateLog(Event event) {
+        logTextArea.setText(storage.getLog());
     }
 }
