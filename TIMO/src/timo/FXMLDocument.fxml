@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -17,42 +19,28 @@
           <RowConstraints minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="80.0">
+            <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0">
               <tabs>
                 <Tab text="TIMO">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <GridPane layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="567.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="520.2923583984375" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="200.0" prefWidth="250.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="200.0" prefWidth="250.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <GridPane GridPane.columnIndex="1">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="144.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="89.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
                                     <GridPane>
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="502.0" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="261.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="502.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="50.0" />
                                       </rowConstraints>
                                        <children>
                                           <GridPane GridPane.rowIndex="1">
@@ -62,29 +50,199 @@
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="50.0" minHeight="20.0" percentHeight="100.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#handleEmptyPaths" prefHeight="40.0" prefWidth="300.0" text="Tyhjennä reitit" GridPane.columnIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#handleAddSmartPost" prefHeight="40.0" prefWidth="300.0" text="Lisää kartalle" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <ComboBox fx:id="cbSmartPost" prefHeight="40.0" prefWidth="300.0" promptText="Valitse SmartPost">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                             </children>
                                           </GridPane>
+                                          <WebView fx:id="wvMap" prefHeight="537.0" prefWidth="369.0" />
                                        </children>
                                     </GridPane>
-                                    <WebView fx:id="wvMap" prefHeight="537.0" prefWidth="369.0" />
+                                    <GridPane GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" percentWidth="100.0" prefWidth="144.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="37.786537170410156" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="107.26079559326172" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="39.426910400390625" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="116.49003601074219" minHeight="10.0" prefHeight="34.24713134765625" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="101.70346069335938" minHeight="10.0" prefHeight="55.197662353515625" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="108.09674072265625" minHeight="10.0" prefHeight="35.328094482421875" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="54.278656005859375" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="54.590972900390625" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="101.4248046875" minHeight="10.0" prefHeight="78.40902709960938" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Valitse esine:" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Paketin lähetys" GridPane.halignment="CENTER">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Valitse lähetysluokka:" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <GridPane GridPane.rowIndex="2">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#handleOpenAddPackageWindow" prefHeight="40.0" prefWidth="170.0" text="Uusi esine" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <ComboBox prefHeight="40.0" prefWidth="147.0" promptText="Esineet" GridPane.halignment="LEFT">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.rowIndex="4">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="34.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints percentHeight="100.0" />
+                                            </rowConstraints>
+                                             <children>
+                                                <RadioButton mnemonicParsing="false" text="1.lk" GridPane.halignment="CENTER" />
+                                                <RadioButton mnemonicParsing="false" text="3.lk" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <RadioButton mnemonicParsing="false" text="2.lk" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Lähtökaupunki:" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+                                          <Label text="Kohdekaupunki:" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
+                                          <GridPane GridPane.rowIndex="6">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane GridPane.rowIndex="8">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </GridPane>
+                                          <Button mnemonicParsing="false" onAction="#handleSendPackets" prefHeight="40.0" text="Lähetä paketit" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                                          <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" GridPane.rowIndex="10" />
+                                       </children>
+                                    </GridPane>
                                  </children>
                               </GridPane>
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="LOKI">
+                <Tab text="LOG">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#handleEmptyPaths" text="Tyhjennä reitit" />
-                              <Button mnemonicParsing="false" onAction="#handleAddSmartPost" text="Lisää kartalle" />
-                              <Button mnemonicParsing="false" onAction="#displayLog" text="Log" />
-                              <Button mnemonicParsing="false" onAction="#handleSendPackets" text="Lähetä paketit" />
-                              <ComboBox fx:id="cbSmartPost" prefWidth="150.0" promptText="Valitse SmartPost" />
-                              <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" />
-                              <Button mnemonicParsing="false" onAction="#handleOpenAddPackageWindow" text="Luo paketti" />
+                              <GridPane layoutX="241.0" layoutY="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="278.8853759765625" minHeight="10.0" prefHeight="43.561485290527344" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="550.2387390136719" minHeight="10.0" prefHeight="523.4385147094727" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="547.0946350097656" minWidth="10.0" prefWidth="520.2429504394531" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.8338623046875" minWidth="10.0" prefWidth="139.75704956054688" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.55731201171875" minWidth="10.0" prefWidth="139.13458251953125" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#displayLog" prefHeight="40.0" prefWidth="400.0" text="Save Log" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="400.0" text="Load Log" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <TextField>
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                       </children>
+                                    </GridPane>
+                                    <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
                            </children>
                         </AnchorPane>
                   </content>
