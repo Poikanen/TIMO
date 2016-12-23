@@ -21,17 +21,7 @@ import javafx.scene.control.TextArea;
 public class AddPackageWindowController implements Initializable {
 
     @FXML
-    private ComboBox<Item> cbItem;
-    @FXML
     private ComboBox<Package> cbPackage;
-    @FXML
-    private ComboBox<String> cbStartCity;
-    @FXML
-    private ComboBox<SmartPost> cbStartSmartPost;
-    @FXML
-    private ComboBox<String> cbDestinationCity;
-    @FXML
-    private ComboBox<SmartPost> cbDestinationSmartPost;
     @FXML
     private TextArea textInfoBox;
     
@@ -55,44 +45,24 @@ public class AddPackageWindowController implements Initializable {
             textInfoBox.setText("3. luokan paketteja käytetään TIMOjen stressinpurkuun joten sisäsltö saattaa hajota matkalla.\n");
         }
     }
-
-    @FXML
-    private void handleStartCityChange(ActionEvent event) {
-        cbStartSmartPost.getItems().clear();
-        cbStartSmartPost.getItems().addAll(db.getCitysSmartPosts(cbStartCity.getValue()));
-    }
-
+    
+    
     @FXML
     private void handleCreatePacket(ActionEvent event) {
-        Package tmpPkg = cbPackage.getValue().getCopy();
-        tmpPkg.setItem(new Item(cbItem.getValue()));
-        tmpPkg.setStart(new SmartPost(cbStartSmartPost.getValue()));
-        tmpPkg.setDestination(new SmartPost(cbDestinationSmartPost.getValue()));
+        //Package tmpPkg = cbPackage.getValue().getCopy();
+        //tmpPkg.setItem(new Item(cbItem.getValue()));
+        //tmpPkg.setStart(new SmartPost(cbStartSmartPost.getValue()));
+        //tmpPkg.setDestination(new SmartPost(cbDestinationSmartPost.getValue()));
         
-        Storage.getInstance().addPackage(tmpPkg);
-        textInfoBox.setText("Paketti luotu.\n");
-    }
-
-    @FXML
-    private void handleDestinationCityChange(ActionEvent event) {
-        cbDestinationSmartPost.getItems().clear();
-        cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
+        //Storage.getInstance().addPackage(tmpPkg);
+        //textInfoBox.setText("Paketti luotu.\n");
     }
     
     public void initData(DataBuilder db){
-        this.db = db;
-        cbStartCity.getItems().addAll(db.getCities());
-        cbDestinationCity.getItems().addAll(db.getCities());
         
         cbPackage.getItems().add(new PackageFirstCategory(new Item(), new SmartPost(), new SmartPost()));
         cbPackage.getItems().add(new PackageSecondCategory(new Item(), new SmartPost(), new SmartPost()));
         cbPackage.getItems().add(new PackageThirdCategory(new Item(), new SmartPost(), new SmartPost()));
-        
-        cbItem.getItems().add(new Item());
-        cbItem.getItems().add(new Sofa());
-        cbItem.getItems().add(new Laptop());
-        cbItem.getItems().add(new Teacup());
-        cbItem.getItems().add(new Plushie());
     }
     
 }

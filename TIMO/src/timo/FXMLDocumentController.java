@@ -15,7 +15,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -33,6 +32,16 @@ public class FXMLDocumentController implements Initializable {
     private WebView wvMap;
     @FXML
     private ComboBox<SmartPost> cbSmartPost;
+    @FXML
+    private ComboBox<Item> cbItem;
+    @FXML
+    private ComboBox<String> cbStartCity;
+    @FXML
+    private ComboBox<SmartPost> cbStartSmartPost;
+    @FXML
+    private ComboBox<String> cbDestinationCity;
+    @FXML
+    private ComboBox<SmartPost> cbDestinationSmartPost;
     
     private DataBuilder db;
     private Storage storage;
@@ -47,6 +56,14 @@ public class FXMLDocumentController implements Initializable {
         storage = Storage.getInstance();
         
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
+        cbStartCity.getItems().addAll(db.getCities());
+        cbDestinationCity.getItems().addAll(db.getCities());
+        
+        cbItem.getItems().add(new Item());
+        cbItem.getItems().add(new Sofa());
+        cbItem.getItems().add(new Laptop());
+        cbItem.getItems().add(new Teacup());
+        cbItem.getItems().add(new Plushie());
     }
 
     @FXML
@@ -118,5 +135,17 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleStartCityChange(ActionEvent event) {
+        cbStartSmartPost.getItems().clear();
+        cbStartSmartPost.getItems().addAll(db.getCitysSmartPosts(cbStartCity.getValue()));
+    }
+
+    @FXML
+    private void handleDestinationCityChange(ActionEvent event) {
+        cbDestinationSmartPost.getItems().clear();
+        cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
 }

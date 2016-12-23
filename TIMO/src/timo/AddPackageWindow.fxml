@@ -6,16 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="258.0" prefWidth="405.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="timo.AddPackageWindowController">
+<AnchorPane id="AnchorPane" prefHeight="258.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.AddPackageWindowController">
    <children>
-      <ComboBox fx:id="cbItem" layoutX="24.0" layoutY="32.0" prefWidth="150.0" promptText="Esine" />
       <ComboBox fx:id="cbPackage" layoutX="210.0" layoutY="32.0" onAction="#displayClassInfo" prefWidth="150.0" promptText="Postitusluokka" />
-      <ComboBox fx:id="cbStartCity" layoutX="24.0" layoutY="76.0" onAction="#handleStartCityChange" prefWidth="150.0" promptText="Lähtökaupunki" />
-      <ComboBox fx:id="cbStartSmartPost" layoutX="24.0" layoutY="117.0" prefWidth="150.0" promptText="SmartPost" />
       <Button layoutX="24.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleCreatePacket" text="Luo paketti" />
-      <ComboBox fx:id="cbDestinationSmartPost" layoutX="210.0" layoutY="117.0" prefWidth="150.0" promptText="SmartPost" />
-      <ComboBox fx:id="cbDestinationCity" layoutX="210.0" layoutY="76.0" onAction="#handleDestinationCityChange" prefWidth="150.0" promptText="Kohdekaupunki" />
       <TextArea fx:id="textInfoBox" layoutX="174.0" layoutY="171.0" prefHeight="104.0" prefWidth="208.0" />
    </children>
 </AnchorPane>

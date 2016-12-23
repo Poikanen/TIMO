@@ -124,7 +124,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox prefHeight="40.0" prefWidth="147.0" promptText="Esineet" GridPane.halignment="LEFT">
+                                                <ComboBox fx:id="cbItem" prefHeight="40.0" prefWidth="147.0" promptText="Esineet" GridPane.halignment="LEFT">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
@@ -157,12 +157,12 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                <ComboBox fx:id="cbStartCity" onAction="#handleStartCityChange" prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="cbStartSmartPost" prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
@@ -178,12 +178,12 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                <ComboBox fx:id="cbDestinationCity" onAction="#handleDestinationCityChange" prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <ComboBox prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="cbDestinationSmartPost" prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
