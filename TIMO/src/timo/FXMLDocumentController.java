@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
@@ -47,6 +48,14 @@ public class FXMLDocumentController implements Initializable {
     private Storage storage;
     @FXML
     private TextArea textInfoBox;
+    @FXML
+    private RadioButton rbFirstClass;
+    @FXML
+    private RadioButton rbThirdClass;
+    @FXML
+    private RadioButton rbSecondsClass;
+    @FXML
+    private ComboBox<?> cbPacket;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,7 +68,7 @@ public class FXMLDocumentController implements Initializable {
         cbStartCity.getItems().addAll(db.getCities());
         cbDestinationCity.getItems().addAll(db.getCities());
         
-        cbItem.getItems().add(new Item());
+        //cbItem.getItems().add(new Item());
         cbItem.getItems().add(new Sofa());
         cbItem.getItems().add(new Laptop());
         cbItem.getItems().add(new Teacup());
@@ -88,8 +97,7 @@ public class FXMLDocumentController implements Initializable {
         textInfoBox.setText("SmartPost lisätty.\n");
     }
 
-    @FXML
-    private void handleSendPackets(ActionEvent event) {
+    private void handleSendPacket(ActionEvent event) {
         ArrayList<Package> tmpToSend = storage.sendPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
@@ -147,5 +155,21 @@ public class FXMLDocumentController implements Initializable {
     private void handleDestinationCityChange(ActionEvent event) {
         cbDestinationSmartPost.getItems().clear();
         cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
+    }
+
+    @FXML
+    private void handleClassChoise(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleStorePacket(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSendPacketFromStorage(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSendAllPackets(ActionEvent event) {
     }
 }

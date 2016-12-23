@@ -79,17 +79,19 @@
                                       </columnConstraints>
                                       <rowConstraints>
                                           <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="37.786537170410156" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="107.26079559326172" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="39.426910400390625" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="116.49003601074219" minHeight="10.0" prefHeight="34.24713134765625" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="101.70346069335938" minHeight="10.0" prefHeight="55.197662353515625" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="108.09674072265625" minHeight="10.0" prefHeight="35.328094482421875" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="54.278656005859375" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="54.590972900390625" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="101.4248046875" minHeight="10.0" prefHeight="78.40902709960938" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="25.78832244873047" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="107.26079559326172" minHeight="10.0" prefHeight="34.21167755126953" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="35.929443359375" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="119.4090576171875" minHeight="10.0" prefHeight="31.253036499023438" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="116.49003601074219" minHeight="10.0" prefHeight="32.85887145996094" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="101.70346069335938" minHeight="10.0" prefHeight="33.14112854003906" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="108.09674072265625" minHeight="10.0" prefHeight="38.788330078125" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="34.211669921875" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="55.070556640625" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="101.4248046875" minHeight="10.0" prefHeight="39.929443359375" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="122.05838012695312" minHeight="10.0" prefHeight="43.588836669921875" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="122.05838012695312" minHeight="10.0" prefHeight="43.588836669921875" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="114.01699829101562" minHeight="10.0" prefHeight="109.41116333007812" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
                                           <Label text="Valitse esine:" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
@@ -119,12 +121,12 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#handleOpenAddItemWindow" prefHeight="40.0" prefWidth="170.0" text="Uusi esine" GridPane.columnIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#handleOpenAddItemWindow" prefHeight="30.0" prefWidth="150.0" text="Uusi esine" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <ComboBox fx:id="cbItem" prefHeight="40.0" prefWidth="147.0" promptText="Esineet" GridPane.halignment="LEFT">
+                                                <ComboBox fx:id="cbItem" prefHeight="30.0" prefWidth="150.0" promptText="Esineet" GridPane.halignment="LEFT">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
@@ -141,9 +143,9 @@
                                               <RowConstraints percentHeight="100.0" />
                                             </rowConstraints>
                                              <children>
-                                                <RadioButton mnemonicParsing="false" text="1.lk" GridPane.halignment="CENTER" />
-                                                <RadioButton mnemonicParsing="false" text="3.lk" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                                <RadioButton mnemonicParsing="false" text="2.lk" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbFirstClass" mnemonicParsing="false" onAction="#handleClassChoise" text="1.lk" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbThirdClass" mnemonicParsing="false" onAction="#handleClassChoise" text="3.lk" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbSecondsClass" mnemonicParsing="false" onAction="#handleClassChoise" text="2.lk" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                              </children>
                                           </GridPane>
                                           <Label text="Lähtökaupunki:" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
@@ -157,12 +159,12 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="cbStartCity" onAction="#handleStartCityChange" prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                <ComboBox fx:id="cbStartCity" onAction="#handleStartCityChange" prefHeight="30.0" prefWidth="150.0" promptText="Kaupunki">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <ComboBox fx:id="cbStartSmartPost" prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="cbStartSmartPost" prefHeight="30.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
@@ -178,20 +180,67 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="cbDestinationCity" onAction="#handleDestinationCityChange" prefHeight="40.0" prefWidth="150.0" promptText="Kaupunki">
+                                                <ComboBox fx:id="cbDestinationCity" onAction="#handleDestinationCityChange" prefHeight="30.0" prefWidth="150.0" promptText="Kaupunki">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
-                                                <ComboBox fx:id="cbDestinationSmartPost" prefHeight="40.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
+                                                <ComboBox fx:id="cbDestinationSmartPost" prefHeight="30.0" prefWidth="150.0" promptText="Automaatti" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </ComboBox>
                                              </children>
                                           </GridPane>
-                                          <Button mnemonicParsing="false" onAction="#handleSendPackets" prefHeight="40.0" text="Lähetä paketit" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                                          <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" GridPane.rowIndex="10" />
+                                          <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" GridPane.rowIndex="13" />
+                                          <GridPane GridPane.rowIndex="9">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#handleStorePacket" prefHeight="30.0" prefWidth="150.0" text="Varastoi paketti" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <Button layoutX="15.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleSendPacket" prefHeight="30.0" prefWidth="150.0" text="Lähetä paketti" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                          </GridPane>
+                                          <Label text="Varasto" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <GridPane GridPane.rowIndex="11">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <ComboBox fx:id="cbPacket" prefHeight="30.0" prefWidth="150.0" promptText="Paketti">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                                <Button mnemonicParsing="false" onAction="#handleSendPacketFromStorage" prefHeight="30.0" prefWidth="150.0" text="Lähetä paketti" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                          </GridPane>
+                                          <Button mnemonicParsing="false" onAction="#handleSendAllPackets" prefHeight="30.0" prefWidth="150.0" text="Lähetä kaikki" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
                                        </children>
                                     </GridPane>
                                  </children>
