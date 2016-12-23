@@ -12,7 +12,7 @@ package timo;
 public class Teacup extends Item{
     
     public Teacup(){
-        super(true, "Teacup");
+        super(true, "Teacup", 5.0d, 7.0d, 7.0d, 250.0d);
     }
     
 }

@@ -15,9 +15,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
@@ -33,11 +33,29 @@ public class FXMLDocumentController implements Initializable {
     private WebView wvMap;
     @FXML
     private ComboBox<SmartPost> cbSmartPost;
+    @FXML
+    private ComboBox<Item> cbItem;
+    @FXML
+    private ComboBox<String> cbStartCity;
+    @FXML
+    private ComboBox<SmartPost> cbStartSmartPost;
+    @FXML
+    private ComboBox<String> cbDestinationCity;
+    @FXML
+    private ComboBox<SmartPost> cbDestinationSmartPost;
     
     private DataBuilder db;
     private Storage storage;
     @FXML
     private TextArea textInfoBox;
+    @FXML
+    private RadioButton rbFirstClass;
+    @FXML
+    private RadioButton rbThirdClass;
+    @FXML
+    private RadioButton rbSecondsClass;
+    @FXML
+    private ComboBox<?> cbPacket;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,6 +65,14 @@ public class FXMLDocumentController implements Initializable {
         storage = Storage.getInstance();
         
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
+        cbStartCity.getItems().addAll(db.getCities());
+        cbDestinationCity.getItems().addAll(db.getCities());
+        
+        //cbItem.getItems().add(new Item());
+        cbItem.getItems().add(new Sofa());
+        cbItem.getItems().add(new Laptop());
+        cbItem.getItems().add(new Teacup());
+        cbItem.getItems().add(new Plushie());
     }
 
     @FXML
@@ -71,8 +97,7 @@ public class FXMLDocumentController implements Initializable {
         textInfoBox.setText("SmartPost lisätty.\n");
     }
 
-    @FXML
-    private void handleSendPackets(ActionEvent event) {
+    private void handleSendPacket(ActionEvent event) {
         ArrayList<Package> tmpToSend = storage.sendPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
@@ -108,15 +133,43 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleOpenAddPackageWindow(ActionEvent event) {
+    private void handleOpenAddItemWindow(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPackageWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddItemWindow.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene((Pane)loader.load()));
-            loader.<AddPackageWindowController>getController().initData(db);
+            loader.<AddItemWindowController>getController().initData(cbItem);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleStartCityChange(ActionEvent event) {
+        cbStartSmartPost.getItems().clear();
+        cbStartSmartPost.getItems().addAll(db.getCitysSmartPosts(cbStartCity.getValue()));
+    }
+
+    @FXML
+    private void handleDestinationCityChange(ActionEvent event) {
+        cbDestinationSmartPost.getItems().clear();
+        cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
+    }
+
+    @FXML
+    private void handleClassChoise(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleStorePacket(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSendPacketFromStorage(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSendAllPackets(ActionEvent event) {
     }
 }
