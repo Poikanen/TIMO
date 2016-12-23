@@ -13,6 +13,7 @@ public class Item {
     
     protected boolean fragile, broken;
     protected String name;
+    protected double width, depth, height, weight;
 
     public Item() {
         this.fragile = false;
@@ -26,9 +27,13 @@ public class Item {
         this.broken = false;
     }
 
-    public Item(boolean fragile, String name) {
+    public Item(boolean fragile, String name ,double width, double height, double depth, double weight) {
         this.fragile = fragile;
         this.name = name;
+        this.width = width;
+        this.depth = depth;
+        this.height = height;
+        this.weight = weight;
     }
     
     public Item(Item copy){

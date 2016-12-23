@@ -12,7 +12,7 @@ package timo;
 public class Laptop extends Item{
     
     public Laptop() {
-        super(false, "Laptop");
+        super(false, "Laptop",40.0d, 3.0d, 30.0d, 1500.0d);
     }
     
 }

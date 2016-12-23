@@ -52,9 +52,18 @@ public class AddItemWindowController implements Initializable {
 
     @FXML
     private void handleCreateItem(ActionEvent event) {
-        cbItem.getItems().add(new Item(fragileChoice.isSelected(), itemTextField.getText()));
+        if (!itemTextField.getText().isEmpty() &&
+            !itemHeightField.getText().isEmpty() &&
+            !itemWidthField.getText().isEmpty() &&
+            !itemDepthField.getText().isEmpty() &&
+            !itemWeightField.getText().isEmpty()) {
+        cbItem.getItems().add(new Item(fragileChoice.isSelected(),
+                itemTextField.getText(), Double.parseDouble(itemWidthField.getText()),
+                Double.parseDouble(itemHeightField.getText()), Double.parseDouble(itemDepthField.getText()),
+                Double.parseDouble(itemWeightField.getText())));
         Stage stage = (Stage) itemTextField.getScene().getWindow();
         stage.close();
+        }
     }
     
 }
