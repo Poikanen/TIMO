@@ -99,6 +99,6 @@ abstract public class Package {
     
     abstract public String getColor();
     
-    @Override
-    abstract public String toString();
+    //@Override
+    //abstract public String toString();
 }
