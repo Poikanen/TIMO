@@ -119,7 +119,7 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#handleOpenAddPackageWindow" prefHeight="40.0" prefWidth="170.0" text="Uusi esine" GridPane.columnIndex="1">
+                                                <Button mnemonicParsing="false" onAction="#handleOpenAddItemWindow" prefHeight="40.0" prefWidth="170.0" text="Uusi esine" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>

@@ -28,6 +28,14 @@ public class AddItemWindowController implements Initializable {
     private CheckBox fragileChoice;
     
     ComboBox<Item> cbItem;
+    @FXML
+    private TextField itemHeightField;
+    @FXML
+    private TextField itemWidthField;
+    @FXML
+    private TextField itemDepthField;
+    @FXML
+    private TextField itemWeightField;
 
     /**
      * Initializes the controller class.

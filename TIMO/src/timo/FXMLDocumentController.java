@@ -125,9 +125,9 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void handleOpenAddPackageWindow(ActionEvent event) {
+    private void handleOpenAddItemWindow(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddPackageWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddItemWindow.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene((Pane)loader.load()));
             loader.<AddItemWindowController>getController().initData(cbItem);
