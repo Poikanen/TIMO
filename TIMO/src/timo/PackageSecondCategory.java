@@ -11,6 +11,10 @@ package timo;
  */
 public class PackageSecondCategory extends Package{
 
+    public PackageSecondCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
+        super(item, start, destination, sent);
+    }
+
     public PackageSecondCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }

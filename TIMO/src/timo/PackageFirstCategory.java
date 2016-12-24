@@ -10,6 +10,10 @@ package timo;
  * @author Toivo
  */
 public class PackageFirstCategory extends Package{
+
+    public PackageFirstCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
+        super(item, start, destination, sent);
+    }
     
     public PackageFirstCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);

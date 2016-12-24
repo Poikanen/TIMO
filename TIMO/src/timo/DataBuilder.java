@@ -96,4 +96,13 @@ public class DataBuilder {
         }
         return smartPosts;
     }
+    
+    public SmartPost getSmartPost(String smartPost){
+        for(int i = 0; i < this.allSmartPosts.size(); i++){
+            if(this.allSmartPosts.get(i).toString().equals(smartPost)){
+                return this.allSmartPosts.get(i);
+            }
+        }
+        return null;
+    }
 }

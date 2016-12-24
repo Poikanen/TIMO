@@ -24,6 +24,7 @@ public class TIMO extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        Storage.getInstance().readLogFromFile();
         stage.show();
     }
 

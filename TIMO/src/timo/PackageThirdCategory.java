@@ -11,6 +11,10 @@ package timo;
  */
 public class PackageThirdCategory extends Package{
 
+    public PackageThirdCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
+        super(item, start, destination, sent);
+    }
+
     public PackageThirdCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
