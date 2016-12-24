@@ -15,6 +15,7 @@ public class PackageFirstCategory extends Package{
         super(item, start, destination, sent);
     }
     
+    public PackageFirstCategory () {}
     public PackageFirstCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
     }
@@ -35,7 +36,7 @@ public class PackageFirstCategory extends Package{
 
     @Override
     public String toString() {
-        return "1";
+        return this.getItem().getName() +": "+ this.getStart().getCity() +" to "+ this.getDestination().getCity();
     }
 
     @Override

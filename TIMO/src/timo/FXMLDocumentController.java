@@ -55,7 +55,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private RadioButton rbThirdClass;
     @FXML
-    private RadioButton rbSecondsClass;
+    private RadioButton rbSecondClass;
     @FXML
     private ComboBox<Package> cbPackage;
     private ToggleGroup tg;
@@ -66,6 +66,11 @@ public class FXMLDocumentController implements Initializable {
         
         db = new DataBuilder();
         storage = Storage.getInstance();
+        tg = new ToggleGroup();
+        rbFirstClass.setToggleGroup(tg);
+        rbSecondClass.setToggleGroup(tg);
+        rbThirdClass.setToggleGroup(tg);
+        tg.selectToggle(rbFirstClass);
         
         cbSmartPost.getItems().addAll(db.getAllSmartPosts());
         cbStartCity.getItems().addAll(db.getCities());
@@ -102,19 +107,30 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleSendPacket(ActionEvent event) {
-        ArrayList<Package> tmpToSend = storage.sendPackages();
+        Package toSend = createNewPackage();
+        //System.out.println("sendable" +toSend);
+        if (toSend!=null)
+        {
+            textInfoBox.setText("");
+            sendPackage(toSend);
+        }
+    }
+    
+    @FXML
+    private void handleSendPacketFromStorage(ActionEvent event) {
+        if (cbPackage.getValue()!=null){
+            Package toSend = cbPackage.getValue();
+            textInfoBox.setText("");
+            sendPackage(toSend);
+        }
+    }
+
+    @FXML
+    private void handleSendAllPackets(ActionEvent event) {
+        ArrayList<Package> tmpToSend = storage.getUnsentPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
-            String script = "document.createPath(";
-            //Get coordinates as String-array
-            script += "[\"" + tmpToSend.get(i).getStart().getGp().getLat() + "\", ";
-            script += "\"" + tmpToSend.get(i).getStart().getGp().getLon() + "\", ";
-            script += "\"" + tmpToSend.get(i).getDestination().getGp().getLat() + "\", ";
-            script += "\"" + tmpToSend.get(i).getDestination().getGp().getLon() + "\"], ";
-            script += "\"" + tmpToSend.get(i).getColor() + "\", ";
-            script += tmpToSend.get(i).getCategory() + ")";
-            wvMap.getEngine().executeScript(script);
-            textInfoBox.setText(tmpToSend.get(i).getSendMessage() + textInfoBox.getText());
+            sendPackage(tmpToSend.get(i));
         }
     }
 
@@ -160,21 +176,64 @@ public class FXMLDocumentController implements Initializable {
         cbDestinationSmartPost.getItems().clear();
         cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
-
-    @FXML
-    private void handleClassChoise(ActionEvent event) {
+    
+    
+    private void updatePackageCombo(){
+        cbPackage.getItems().clear();
+        cbPackage.getItems().addAll(storage.getUnsentPackages());
+    }
+    
+    private Package createNewPackage(){
+        
+        if (cbItem.getValue()!=null && cbDestinationSmartPost.getValue()!=null &&
+                cbStartSmartPost.getValue()!=null && !getPacketClass().equals("0")) {
+            Package newPackage = new PackageFirstCategory();
+            switch (Integer.parseInt(getPacketClass())){
+                case 1: newPackage = new PackageFirstCategory(cbItem.getValue(), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue());
+                        break;
+                case 2: newPackage = new PackageSecondCategory(cbItem.getValue(), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue());
+                        break;
+                case 3: newPackage = new PackageThirdCategory(cbItem.getValue(), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue());
+                        break;
+            }
+            storage.addPackage(newPackage);
+            System.out.println("Storage: \n" +storage.getLog());
+            updatePackageCombo();
+            return newPackage;
+        }
+        return null;
+    }
+    
+    private String getPacketClass(){
+        String tmp = "0";
+        if (rbFirstClass.isSelected())
+            tmp = "1";
+        if (rbSecondClass.isSelected())
+            tmp = "2";
+        if (rbThirdClass.isSelected())
+            tmp = "3";
+        return tmp;
     }
 
     @FXML
     private void handleStorePacket(ActionEvent event) {
+        createNewPackage();
     }
 
-    @FXML
-    private void handleSendPacketFromStorage(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleSendAllPackets(ActionEvent event) {
+    
+    private void sendPackage(Package toSend){
+        String script = "document.createPath(";
+            //Get coordinates as String-array
+            script += "[\"" + toSend.getStart().getGp().getLat() + "\", ";
+            script += "\"" + toSend.getStart().getGp().getLon() + "\", ";
+            script += "\"" + toSend.getDestination().getGp().getLat() + "\", ";
+            script += "\"" + toSend.getDestination().getGp().getLon() + "\"], ";
+            script += "\"" + toSend.getColor() + "\", ";
+            script += toSend.getCategory() + ")";
+            wvMap.getEngine().executeScript(script);
+            textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
+            toSend.send();
+            updatePackageCombo();
     }
 
     @FXML

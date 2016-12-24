@@ -143,9 +143,9 @@
                                               <RowConstraints percentHeight="100.0" />
                                             </rowConstraints>
                                              <children>
-                                                <RadioButton fx:id="rbFirstClass" mnemonicParsing="false" onAction="#handleClassChoise" text="1.lk" GridPane.halignment="CENTER" />
-                                                <RadioButton fx:id="rbThirdClass" mnemonicParsing="false" onAction="#handleClassChoise" text="3.lk" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                                <RadioButton fx:id="rbSecondsClass" mnemonicParsing="false" onAction="#handleClassChoise" text="2.lk" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbFirstClass" mnemonicParsing="false" text="1.lk" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbThirdClass" mnemonicParsing="false" text="3.lk" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <RadioButton fx:id="rbSecondClass" mnemonicParsing="false" text="2.lk" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                                              </children>
                                           </GridPane>
                                           <Label text="Lähtökaupunki:" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
@@ -192,7 +192,7 @@
                                                 </ComboBox>
                                              </children>
                                           </GridPane>
-                                          <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" GridPane.rowIndex="13" />
+                                          <TextArea fx:id="textInfoBox" prefHeight="104.0" prefWidth="208.0" wrapText="true" GridPane.rowIndex="13" />
                                           <GridPane GridPane.rowIndex="9">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -228,7 +228,7 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="cbPacket" prefHeight="30.0" prefWidth="150.0" promptText="Paketti">
+                                                <ComboBox fx:id="cbPackage" prefHeight="30.0" prefWidth="150.0" promptText="Paketti">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>

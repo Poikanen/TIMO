@@ -35,7 +35,7 @@ public class PackageSecondCategory extends Package{
 
     @Override
     public String toString() {
-        return "2";
+        return this.getItem().getName() +": "+ this.getStart().getCity() +" to "+ this.getDestination().getCity();
     }
 
     @Override
