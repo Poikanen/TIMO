@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -56,9 +57,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private RadioButton rbSecondsClass;
     @FXML
-    private ComboBox<?> cbPacket;
-    @FXML
-    private TextArea logTextArea;
+    private ComboBox<Package> cbPackage;
+    private ToggleGroup tg;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
