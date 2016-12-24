@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -58,6 +59,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<Package> cbPackage;
     private ToggleGroup tg;
+    @FXML
+    private TextArea logTextArea;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -196,7 +200,6 @@ public class FXMLDocumentController implements Initializable {
                         break;
             }
             storage.addPackage(newPackage);
-            System.out.println("Storage: \n" +storage.getLog());
             updatePackageCombo();
             return newPackage;
         }
@@ -233,5 +236,10 @@ public class FXMLDocumentController implements Initializable {
             textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
             toSend.send();
             updatePackageCombo();
+    }
+
+    @FXML
+    private void updateLog(Event event) {
+        logTextArea.setText(storage.getLog());
     }
 }
