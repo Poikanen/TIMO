@@ -94,13 +94,13 @@ public class Storage {
                 log += "Ehjä\n";
             }
             //  Syvyys
-            log += "Syvyys: " + String.valueOf(allPackages.get(i).getItem().getDepth());
+            log += "Syvyys: " + String.valueOf(allPackages.get(i).getItem().getDepth()) + "\n";
             //  Leveys
-            log += "Leveys: " + String.valueOf(allPackages.get(i).getItem().getWidth());
+            log += "Leveys: " + String.valueOf(allPackages.get(i).getItem().getWidth()) + "\n";
             //  Korkeus
-            log += "Korkeus: " + String.valueOf(allPackages.get(i).getItem().getHeight());
+            log += "Korkeus: " + String.valueOf(allPackages.get(i).getItem().getHeight()) + "\n";
             //  Paino
-            log += "Paino: " + String.valueOf(allPackages.get(i).getItem().getWeight());
+            log += "Paino: " + String.valueOf(allPackages.get(i).getItem().getWeight()) + "\n";
             //Matkan pituus
             log += "Matkan pituus: " + String.valueOf(Math.round(allPackages.get(i).getStart().getGp().getDistanceTo(allPackages.get(i).getDestination().getGp())));
             log += "km\n";
@@ -119,6 +119,7 @@ public class Storage {
     }
     
     public boolean readLogFromFile(){
+        System.out.println("Started to read log from file");
         BufferedReader reader;
         
         try {

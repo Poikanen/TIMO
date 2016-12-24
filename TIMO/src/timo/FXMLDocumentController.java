@@ -59,6 +59,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<Package> cbPackage;
     private ToggleGroup tg;
+    @FXML
+    private TextArea logTextArea;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -197,7 +200,6 @@ public class FXMLDocumentController implements Initializable {
                         break;
             }
             storage.addPackage(newPackage);
-            System.out.println("Storage: \n" +storage.getLog());
             updatePackageCombo();
             return newPackage;
         }
