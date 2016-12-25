@@ -143,19 +143,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void displayLog(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LogWindow.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene((Pane)loader.load()));
-            loader.<LogWindowController>getController().initData(storage.getLog());
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
     private void handleOpenAddItemWindow(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddItemWindow.fxml"));
