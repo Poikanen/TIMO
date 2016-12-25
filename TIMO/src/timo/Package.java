@@ -25,6 +25,14 @@ abstract public class Package {
         this.status = "storage";
     }
 
+    public Package(Item item, SmartPost start, SmartPost destination, boolean sent) {
+        this.item = item;
+        this.start = start;
+        this.destination = destination;
+        this.sent = sent;
+        this.sendMessage = "";
+    }
+
     protected Package(Package copy) {
         //new **** to avoid problems with copying only references
         this.item = new Item(copy.getItem());
