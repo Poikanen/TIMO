@@ -9,5 +9,17 @@ and open the template in the editor.
 */
 
 .button{
-    -fx-background-color: #CCFF99;
+    -fx-background-color: #ff8000;
+}
+.combo-box{
+    -fx-background-color: #ff8000;
+}
+.tab{
+    -fx-background-color: #ff8000;
+}
+.text-area{
+    -fx-background-color: #ff8000;
+}
+.text-field{
+    -fx-background-color: #ff8000;
 }
