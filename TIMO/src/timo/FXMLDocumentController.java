@@ -21,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -56,6 +57,7 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton rbThirdClass;
     @FXML
     private RadioButton rbSecondClass;
+    
     @FXML
     private ComboBox<Package> cbPackage;
     private ToggleGroup tg;
@@ -84,6 +86,19 @@ public class FXMLDocumentController implements Initializable {
         cbItem.getItems().add(new Laptop());
         cbItem.getItems().add(new Teacup());
         cbItem.getItems().add(new Plushie());
+        
+        
+        Tooltip rbTip1 = new Tooltip();
+        Tooltip rbTip2 = new Tooltip();
+        Tooltip rbTip3 = new Tooltip();
+        
+        rbTip1.setText("Teksti tähän");
+        rbTip2.setText("Teksti tähän");
+        rbTip3.setText("Teksti tähän");
+        
+        rbFirstClass.setTooltip(rbTip1);
+        rbSecondClass.setTooltip(rbTip2);
+        rbThirdClass.setTooltip(rbTip3);
     }
 
     @FXML
