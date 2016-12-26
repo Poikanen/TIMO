@@ -13,11 +13,17 @@ public class PackageFirstCategory extends Package{
 
     public PackageFirstCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
         super(item, start, destination, sent);
+        maxWidth = 60d;
+        maxHeight = 36d;
+        maxDepth = 59d;
     }
     
     public PackageFirstCategory () {}
     public PackageFirstCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
+        maxWidth = 60d;
+        maxHeight = 36d;
+        maxDepth = 59d;
     }
     
     private PackageFirstCategory(Package copy){
@@ -52,8 +58,11 @@ public class PackageFirstCategory extends Package{
             return false;
         }
         //Else
-        this.sent = true;
         this.sendMessage = "Paketti lähetetty.\n";
+        this.item.throwAround();
+        if (this.item.isBroken())
+            this.sendMessage += "Ikävä kyllä TIMO-mies rikkoi paketin matkalla.\n";
+        this.sent = true;
         return true;
     }
 
