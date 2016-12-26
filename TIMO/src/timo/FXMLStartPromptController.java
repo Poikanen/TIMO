@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,6 +78,20 @@ public class FXMLStartPromptController implements Initializable {
             stage = (Stage)buttonNewTimo.getScene().getWindow();
             stage.close();
             Storage.getInstance().readLogFromFile();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void timoGame(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimoGame.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((Pane)loader.load()));
+            stage.show();
+            stage = (Stage)buttonNewTimo.getScene().getWindow();
+            stage.close();
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
