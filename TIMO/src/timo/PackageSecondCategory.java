@@ -13,10 +13,16 @@ public class PackageSecondCategory extends Package{
 
     public PackageSecondCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
         super(item, start, destination, sent);
+        maxWidth = 11d;
+        maxHeight = 36d;
+        maxDepth = 60d;
     }
 
     public PackageSecondCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
+        maxWidth = 11d;
+        maxHeight = 36d;
+        maxDepth = 60d;
     }
     
     private PackageSecondCategory(Package copy){

@@ -103,7 +103,7 @@ public class Storage {
             log += "Paino: " + String.valueOf(allPackages.get(i).getItem().getWeight()) + "\n";
             //Matkan pituus
             log += "Matkan pituus: " + String.valueOf(Math.round(allPackages.get(i).getStart().getGp().getDistanceTo(allPackages.get(i).getDestination().getGp())));
-            log += "km\n";
+            log += "km\n\n";
         }
         return log;
     }
@@ -166,7 +166,7 @@ public class Storage {
                   (height = reader.readLine()) != null &&
                   (weight = reader.readLine()) != null){
                     //  Nimi
-                    
+                    reader.readLine();
                     //Lähtö
                 SmartPost start = db.getSmartPost(smartStart.substring(7));
                     //Kohde

@@ -180,7 +180,7 @@ public class FXMLDocumentController implements Initializable {
         cbDestinationSmartPost.getItems().addAll(db.getCitysSmartPosts(cbDestinationCity.getValue()));
     }
     
-    
+    @FXML
     private void updatePackageCombo(){
         cbPackage.getItems().clear();
         cbPackage.getItems().addAll(storage.getUnsentPackages());
@@ -199,6 +199,10 @@ public class FXMLDocumentController implements Initializable {
                 case 3: newPackage = new PackageThirdCategory(cbItem.getValue(), cbStartSmartPost.getValue(), cbDestinationSmartPost.getValue());
                         break;
             }
+            if (!newPackage.doesFit(cbItem.getValue())){
+                return null;
+            }
+            
             storage.addPackage(newPackage);
             updatePackageCombo();
             return newPackage;
