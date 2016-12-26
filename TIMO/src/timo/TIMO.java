@@ -32,8 +32,6 @@ public class TIMO extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        Storage storage = Storage.getInstance();
-        storage.writeLogToFile();
     }
     
 }
