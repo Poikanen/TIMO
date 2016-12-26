@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="189.0" prefWidth="314.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="timo.FXMLStartPromptController">
+   <children>
+      <Button layoutX="115.0" layoutY="79.0" mnemonicParsing="false" onAction="#loadTimo" text="Load TIMO" />
+      <Button fx:id="buttonNewTimo" layoutX="116.0" layoutY="26.0" mnemonicParsing="false" onAction="#newTimo" text="New TIMO" />
+      <Button layoutX="112.0" layoutY="136.0" mnemonicParsing="false" text="TIMO Game" />
+   </children>
+</AnchorPane>

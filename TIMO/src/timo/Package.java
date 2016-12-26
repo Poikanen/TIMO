@@ -15,6 +15,7 @@ abstract public class Package {
     protected boolean sent;
     protected String sendMessage;
     protected String status; // "storage", "delivery", "destination"
+    protected double maxWidth,maxHeight,maxDepth;
 
     public Package(Item item, SmartPost start, SmartPost destination) {
         this.item = item;
@@ -23,6 +24,9 @@ abstract public class Package {
         this.sent = false;
         this.sendMessage = "";
         this.status = "storage";
+        maxWidth = 60d;
+        maxHeight =36d;
+        maxDepth =11d;
     }
 
     public Package(Item item, SmartPost start, SmartPost destination, boolean sent) {
@@ -40,6 +44,9 @@ abstract public class Package {
         this.destination = new SmartPost(copy.getDestination());
         this.sent = copy.isSent();
         this.status = copy.getStatus();
+        this.maxWidth = copy.maxWidth;
+        this.maxHeight = copy.maxHeight;
+        this.maxDepth = copy.maxDepth;
     }
     
     public Package(){
@@ -97,6 +104,16 @@ abstract public class Package {
 
     public String getSendMessage() {
         return sendMessage;
+    }
+    
+    public boolean doesFit(Item item){
+        return (item.width <= maxWidth && item.height <= maxHeight && item.depth <= maxDepth)||
+                (item.width <= maxWidth && item.depth <= maxHeight && item.height <= maxDepth)||
+                (item.height <= maxWidth && item.width <= maxHeight && item.depth <= maxDepth)||
+                (item.height <= maxWidth && item.depth <= maxHeight && item.width <= maxDepth)||
+                (item.depth <= maxWidth && item.height <= maxHeight && item.width <= maxDepth)||
+                (item.depth <= maxWidth && item.width <= maxHeight && item.height <= maxDepth);
+                
     }
     
     abstract public Package getCopy();
