@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25.12.2016, 20:56:33
+    Author     : Toivo
+*/
+
+.button{
+    -fx-background-color: #ff8000;
+}
+.combo-box{
+    -fx-background-color: #ff8000;
+}
+.tab{
+    -fx-background-color: #ff8000;
+}
+.text-area{
+    -fx-background-color: #ff8000;
+}
+.text-field{
+    -fx-background-color: #ff8000;
+}
+.tooltip{
+    -fx-background-color: #ff8000;
+}

@@ -2,25 +2,29 @@
 
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="160.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timo.AddItemWindowController">
-   <children>
-      <Button layoutX="266.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleCreateItem" text="Luo paketti" />
-      <TextField fx:id="itemTextField" layoutX="14.0" layoutY="14.0" promptText="Esineen nimi" />
-      <CheckBox fx:id="fragileChoice" layoutX="277.0" layoutY="19.0" mnemonicParsing="false" text="Fragile" />
-      <TextField fx:id="itemHeightField" layoutX="14.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
-      <Label layoutX="14.0" layoutY="52.0" text="Height:" />
-      <TextField fx:id="itemWidthField" layoutX="98.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
-      <Label layoutX="98.0" layoutY="52.0" text="Width:" />
-      <TextField fx:id="itemDepthField" layoutX="180.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
-      <Label layoutX="180.0" layoutY="52.0" text="Depth:" />
-      <Label alignment="CENTER" layoutX="164.0" layoutY="74.0" prefHeight="17.0" prefWidth="17.0" text="x" />
-      <Label alignment="CENTER" layoutX="80.0" layoutY="74.0" prefHeight="17.0" prefWidth="17.0" text="x" />
-      <Label layoutX="14.0" layoutY="104.0" text="Weight:" />
-      <TextField fx:id="itemWeightField" layoutX="14.0" layoutY="121.0" prefHeight="27.0" prefWidth="66.0" promptText="g" />
-   </children>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+    <children>
+       <Button layoutX="266.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleCreateItem" text="Luo paketti" />
+       <TextField fx:id="itemTextField" layoutX="14.0" layoutY="14.0" promptText="Esineen nimi" />
+       <CheckBox fx:id="fragileChoice" layoutX="277.0" layoutY="19.0" mnemonicParsing="false" text="Fragile" />
+       <TextField fx:id="itemHeightField" layoutX="14.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
+       <Label layoutX="14.0" layoutY="52.0" text="Height:" />
+       <TextField fx:id="itemWidthField" layoutX="98.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
+       <Label layoutX="98.0" layoutY="52.0" text="Width:" />
+       <TextField fx:id="itemDepthField" layoutX="180.0" layoutY="69.0" prefHeight="27.0" prefWidth="66.0" promptText="cm" />
+       <Label layoutX="180.0" layoutY="52.0" text="Depth:" />
+       <Label alignment="CENTER" layoutX="164.0" layoutY="74.0" prefHeight="17.0" prefWidth="17.0" text="x" />
+       <Label alignment="CENTER" layoutX="80.0" layoutY="74.0" prefHeight="17.0" prefWidth="17.0" text="x" />
+       <Label layoutX="14.0" layoutY="104.0" text="Weight:" />
+       <TextField fx:id="itemWeightField" layoutX="14.0" layoutY="121.0" prefHeight="27.0" prefWidth="66.0" promptText="g" />
+    </children>
 </AnchorPane>
