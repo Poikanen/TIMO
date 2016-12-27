@@ -90,10 +90,10 @@ public class FXMLDocumentController implements Initializable {
         Tooltip rbTip2 = new Tooltip();
         Tooltip rbTip3 = new Tooltip();
         
-        rbTip1.setText("Paketti kuljetetaan juosten\n"
+        rbTip1.setText("Paketti kiidätetään pikaisesti\n"
                 + "enintään 150km päähän.");
-        rbTip2.setText("Paketti kulkeutuu kävellen\n"
-                + "kaikkialle Suomeen.");
+        rbTip2.setText("Paketti kuljetetaan turvallisesti\n"
+                + "minne tahansa Suomessa.");
         rbTip3.setText("Paketti paiskotaan perille.");
         
         rbFirstClass.setTooltip(rbTip1);
@@ -103,24 +103,28 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleAddSmartPost(ActionEvent event) {
-        SmartPost SP = cbSmartPost.getValue();
-        //JS-script: document.goToLocation("<address>, <postnumber> <city>", "<additional info>", "<color>")
-        //Construct the script
-        String script = "document.goToLocation(";
-        //First parameter, "<address>, 
-        script += "\"" + SP.getAddress() + ", ";
-        //<postnumber> 
-        script += SP.getPostnumber() + " ";
-        //<city>", 
-        script += SP.getCity() + "\",";
-        //Second parameter "<Additional info>", 
-        script += " \"" + SP.getAvailability() + "\",";
-        //Third parameter "<color>" and close with )
-        script += "\"red\"" + ")";
-        //Uncomment to see the syntax
-        //System.out.println(script);
-        wvMap.getEngine().executeScript(script);
-        textInfoBox.setText("SmartPost lisätty.\n");
+        if(cbSmartPost.getValue() != null){
+            SmartPost SP = cbSmartPost.getValue();
+            //JS-script: document.goToLocation("<address>, <postnumber> <city>", "<additional info>", "<color>")
+            //Construct the script
+            String script = "document.goToLocation(";
+            //First parameter, "<address>, 
+            script += "\"" + SP.getAddress() + ", ";
+            //<postnumber> 
+            script += SP.getPostnumber() + " ";
+            //<city>", 
+            script += SP.getCity() + "\",";
+            //Second parameter "<Additional info>", 
+            script += " \"" + SP.getAvailability() + "\",";
+            //Third parameter "<color>" and close with )
+            script += "\"red\"" + ")";
+            //Uncomment to see the syntax
+            //System.out.println(script);
+            wvMap.getEngine().executeScript(script);
+            textInfoBox.setText("SmartPost lisätty.\n");
+        }else{
+            textInfoBox.setText("Valitse lisättävä SmartPost.\n");
+        }
     }
 
     @FXML
@@ -131,6 +135,7 @@ public class FXMLDocumentController implements Initializable {
         {
             textInfoBox.setText("");
             sendPackage(toSend);
+            textInfoBox.setText("Paketti lähetetty.\n");
         }
     }
     
@@ -140,6 +145,9 @@ public class FXMLDocumentController implements Initializable {
             Package toSend = cbPackage.getValue();
             textInfoBox.setText("");
             sendPackage(toSend);
+            textInfoBox.setText("Paketti lähetetty.\n");
+        }else{
+            textInfoBox.setText("Valitse lähetettävä paketti.\n");
         }
     }
 
@@ -150,11 +158,13 @@ public class FXMLDocumentController implements Initializable {
         for(int i = 0; i < tmpToSend.size(); i++){
             sendPackage(tmpToSend.get(i));
         }
+        textInfoBox.setText("Kaikki paketit lähetetty.\n");
     }
 
     @FXML
     private void handleEmptyPaths(ActionEvent event) {
         wvMap.getEngine().executeScript("document.deletePaths()");
+        textInfoBox.setText("Reitit tyhjennetty.\n");
     }
 
     @FXML
@@ -202,13 +212,16 @@ public class FXMLDocumentController implements Initializable {
                         break;
             }
             if (!newPackage.doesFit(cbItem.getValue())){
+                textInfoBox.setText("Paketti on liian suuri.\n");
                 return null;
             }
             
             storage.addPackage(newPackage);
             updatePackageCombo();
+            textInfoBox.setText("Paketti luotu.\n");
             return newPackage;
         }
+        textInfoBox.setText("Anna kaikki tarvittavat tiedot.\n");
         return null;
     }
     
