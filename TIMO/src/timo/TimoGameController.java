@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 
 /**
@@ -34,6 +35,7 @@ public class TimoGameController implements Initializable {
     private DataBuilder db;
     private Storage storage;
     private ArrayList<SmartPost> smartPosts;
+    private ArrayList<Item> items;
     /**
      * Initializes the controller class.
      */
@@ -47,11 +49,30 @@ public class TimoGameController implements Initializable {
         smartPosts.addAll(db.getAllSmartPosts());
         packageListView.getItems().addAll((Collection)smartPosts);
         
+        //items.add(new Teapot());
+        //items.add(new Laptop());
+        //items.add(new Teacup());
+        //items.add(new Plushie());
+        
     }    
 
     @FXML
     private void sendTimo(ActionEvent event) {
-        
+        packageInfoField.setText(packageListView.getSelectionModel().getSelectedItem().toString());
     }
     
+    private Collection createPackages(){
+        ArrayList createdPackages = new ArrayList();
+        Package pac;
+        
+        for (int i=0; i<50; i++){
+            //pac = new PackageFirstCategory(items.get(rand()));
+        }
+        return createdPackages;
+    }
+
+    @FXML
+    private void updateInfoBox(MouseEvent event) {
+        packageInfoField.setText(packageListView.getSelectionModel().getSelectedItem().toString());
+    }
 }

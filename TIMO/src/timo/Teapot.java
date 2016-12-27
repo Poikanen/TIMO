@@ -9,14 +9,14 @@ package timo;
  *
  * @author Toivo
  */
-public class Sofa extends Item{
+public class Teapot extends Item{
     
-    public Sofa() {
-        super(false, "Sofa", 320.0d, 90.0d, 90d, 60000.0d);
+    public Teapot() {
+        super(false, "Teapot", 15.d, 40.d, 20.d, 270.d);
     }
     
-    public Sofa(boolean broken) {
-        super(false, "Sofa", broken, 320.0d, 90.0d, 90d, 60000.0d);
+    public Teapot(boolean broken) {
+        super(false, "Teapot", broken, 15.d, 40.d, 20.d, 270.d);
     }
     
 }
