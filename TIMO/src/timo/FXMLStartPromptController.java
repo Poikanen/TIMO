@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -44,6 +47,13 @@ public class FXMLStartPromptController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene((Pane)loader.load()));
             stage.show();
+            //Writes log to file when the new window is closed
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {
+                    Storage.getInstance().writeLogToFile();
+                }
+            });
             stage = (Stage)buttonNewTimo.getScene().getWindow();
             stage.close();
         } catch (IOException ex) {
@@ -58,9 +68,30 @@ public class FXMLStartPromptController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene((Pane)loader.load()));
             stage.show();
+            //Writes log to file when the new window is closed
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {
+                    Storage.getInstance().writeLogToFile();
+                }
+            });
             stage = (Stage)buttonNewTimo.getScene().getWindow();
             stage.close();
             Storage.getInstance().readLogFromFile();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void timoGame(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TimoGame.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((Pane)loader.load()));
+            stage.show();
+            stage = (Stage)buttonNewTimo.getScene().getWindow();
+            stage.close();
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
