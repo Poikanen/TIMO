@@ -54,7 +54,7 @@ public class PackageFirstCategory extends Package{
         //Else if
         if(this.start.getGp().getDistanceTo(this.destination.getGp()) > 150){
             this.sent = false;
-            this.sendMessage = "Matka olise liian pitkä ja TIMO kieltäytyy toimituksesta.\n";
+            this.sendMessage = "Matka olisi liian pitkä ja TIMO kieltäytyy toimituksesta.\n";
             return false;
         }
         //Else
