@@ -8,6 +8,7 @@ package timo;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,7 @@ public class TimoGameController implements Initializable {
     @FXML
     private TextArea packageInfoField;
     @FXML
-    private ListView<?> packageListView;
+    private ListView<Package> packageListView;
 
     
     private DataBuilder db;
@@ -47,13 +48,15 @@ public class TimoGameController implements Initializable {
         storage = Storage.getInstance();
         smartPosts = new ArrayList();
         smartPosts.addAll(db.getAllSmartPosts());
-        packageListView.getItems().addAll((Collection)smartPosts);
         
-        //items.add(new Teapot());
-        //items.add(new Laptop());
-        //items.add(new Teacup());
-        //items.add(new Plushie());
         
+        items = new ArrayList();
+        items.add(new Teapot());
+        items.add(new Laptop());
+        items.add(new Teacup());
+        items.add(new Plushie());
+        
+        packageListView.getItems().addAll(createPackages());
     }    
 
     @FXML
@@ -64,9 +67,10 @@ public class TimoGameController implements Initializable {
     private Collection createPackages(){
         ArrayList createdPackages = new ArrayList();
         Package pac;
-        
+        Random rand = new Random();
         for (int i=0; i<50; i++){
-            //pac = new PackageFirstCategory(items.get(rand()));
+            pac = new PackageFirstCategory(items.get(rand.nextInt(4)),smartPosts.get(rand.nextInt(smartPosts.size())),smartPosts.get(rand.nextInt(smartPosts.size())));
+            createdPackages.add(pac);
         }
         return createdPackages;
     }
