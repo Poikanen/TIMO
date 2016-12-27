@@ -51,7 +51,7 @@ public class PackageSecondCategory extends Package{
             return false;
         }
         this.sent = true;
-        this.sendMessage = "Paketti lähetetty.\n";
+        this.sendMessage = this.item.getName() + " lähetetty 2.lk pakettina.\n";
         return true;
     }
 

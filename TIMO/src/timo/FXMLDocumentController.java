@@ -120,26 +120,31 @@ public class FXMLDocumentController implements Initializable {
         //Uncomment to see the syntax
         //System.out.println(script);
         wvMap.getEngine().executeScript(script);
-        textInfoBox.setText("SmartPost lisätty.\n");
+        textInfoBox.setText("SmartPost lisätty kartalle.\n");
     }
 
     @FXML
     private void handleSendPacket(ActionEvent event) {
         Package toSend = createNewPackage();
-        //System.out.println("sendable" +toSend);
+        textInfoBox.setText("");
         if (toSend!=null)
         {
-            textInfoBox.setText("");
-            sendPackage(toSend);
+            if(toSend.send()){
+                sendPackage(toSend);
+            }
+            textInfoBox.setText(toSend.getSendMessage());
         }
+        
     }
     
     @FXML
     private void handleSendPacketFromStorage(ActionEvent event) {
         if (cbPackage.getValue()!=null){
             Package toSend = cbPackage.getValue();
-            textInfoBox.setText("");
-            sendPackage(toSend);
+            if (toSend.send()){
+                sendPackage(toSend);
+            }
+            textInfoBox.setText(toSend.getSendMessage());
         }
     }
 
@@ -148,7 +153,10 @@ public class FXMLDocumentController implements Initializable {
         ArrayList<Package> tmpToSend = storage.getUnsentPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
-            sendPackage(tmpToSend.get(i));
+            if (tmpToSend.get(i).send()){
+                sendPackage(tmpToSend.get(i));
+            }
+            textInfoBox.setText(tmpToSend.get(i).getSendMessage() +"\n" + textInfoBox.getText());
         }
     }
 
@@ -225,7 +233,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleStorePacket(ActionEvent event) {
-        createNewPackage();
+        if(createNewPackage() != null)
+            textInfoBox.setText("Paketti varastoitu.");
     }
 
     
@@ -239,8 +248,8 @@ public class FXMLDocumentController implements Initializable {
             script += "\"" + toSend.getColor() + "\", ";
             script += toSend.getCategory() + ")";
             wvMap.getEngine().executeScript(script);
-            textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
             toSend.send();
+            //textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
             updatePackageCombo();
     }
 

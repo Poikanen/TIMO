@@ -232,7 +232,7 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <ComboBox fx:id="cbPackage" onMouseEntered="#updatePackageCombo" prefHeight="30.0" prefWidth="150.0" promptText="Paketti">
+                                                <ComboBox fx:id="cbPackage" onMouseClicked="#updatePackageCombo" prefHeight="30.0" prefWidth="150.0" promptText="Paketti">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
@@ -262,38 +262,10 @@
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="278.8853759765625" minHeight="10.0" prefHeight="43.561485290527344" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="550.2387390136719" minHeight="10.0" prefHeight="523.4385147094727" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="523.4385147094727" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <GridPane>
-                                      <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="547.0946350097656" minWidth="10.0" prefWidth="520.2429504394531" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.8338623046875" minWidth="10.0" prefWidth="139.75704956054688" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.55731201171875" minWidth="10.0" prefWidth="139.13458251953125" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="400.0" text="Save Log" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="400.0" text="Load Log" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <TextField>
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin>
-                                          </TextField>
-                                       </children>
-                                    </GridPane>
-                                    <TextArea fx:id="logTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <TextArea fx:id="logTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </GridPane>
                            </children>

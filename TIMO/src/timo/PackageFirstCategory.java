@@ -54,11 +54,11 @@ public class PackageFirstCategory extends Package{
         //Else if
         if(this.start.getGp().getDistanceTo(this.destination.getGp()) > 150){
             this.sent = false;
-            this.sendMessage = "Matka oli liian pitkä ja TIMO ei jaksanut loppuun saakka.\n";
+            this.sendMessage = "Matka olisi liian pitkä ja TIMO kieltäytyy toimituksesta.\n";
             return false;
         }
         //Else
-        this.sendMessage = "Paketti lähetetty.\n";
+        this.sendMessage = this.item.getName() + " lähetetty 1.lk pakettina.\n";
         this.item.throwAround();
         if (this.item.isBroken())
             this.sendMessage += "Ikävä kyllä TIMO-mies rikkoi paketin matkalla.\n";

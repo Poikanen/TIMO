@@ -62,7 +62,7 @@ public class Storage {
         //  Rikki?
         
         String log = "";
-        log += "Paketteja yhteensä: " + String.valueOf(allPackages.size()) + "\n";
+        log += "Paketteja yhteensä: " + String.valueOf(allPackages.size()) + "\n\n";
         for(int i = 0; i < allPackages.size(); i++){
             //Pakettiluokka
             log += "Pakettiluokka: " + allPackages.get(i).getCategory() + "\n";
@@ -152,7 +152,8 @@ public class Storage {
         String packageClass, smartStart, smartEnd, bSent, itemName, bFragile, bBroken, depth, width, height, weight;
         Package pkg;
         try {
-            //First line is number of packages
+            //First line is number of packages + empty line after
+            reader.readLine();
             reader.readLine();
             while((packageClass = reader.readLine()) != null &&
                   (smartStart = reader.readLine()) != null &&
@@ -170,7 +171,7 @@ public class Storage {
                     //Lähtö
                 SmartPost start = db.getSmartPost(smartStart.substring(7));
                     //Kohde
-                SmartPost end = db.getSmartPost(smartStart.substring(7));
+                SmartPost end = db.getSmartPost(smartEnd.substring(7));
                     //Lähetetty
                 boolean sent = true;
                 if(bSent.equals("Lähettämättä")){
@@ -219,10 +220,10 @@ public class Storage {
                         pkg = new PackageFirstCategory(item, start, end, sent);
                         break;
                     case "Pakettiluokka: 2":
-                        pkg = new PackageFirstCategory(item, start, end, sent);
+                        pkg = new PackageSecondCategory(item, start, end, sent);
                         break;
                     case "Pakettiluokka: 3":
-                        pkg = new PackageFirstCategory(item, start, end, sent);
+                        pkg = new PackageThirdCategory(item, start, end, sent);
                         break;
                     default:
                         //Something wrong
