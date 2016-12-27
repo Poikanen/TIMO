@@ -12,6 +12,7 @@
   var polyMarkerArray = [];
   function initialize() {
     var latlng = new google.maps.LatLng(63.9667, 25.7667);
+    ready  = 1;
     var myOptions = {
       zoom: 6,
       center: latlng,
@@ -91,6 +92,7 @@
     setTimeout(function() {
       path.push(loc);
     }, speed * 100 * i);
+    ready = 1;
   };
 
   document.deletePaths = function deletePaths() {

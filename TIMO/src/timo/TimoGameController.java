@@ -7,7 +7,6 @@ package timo;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -35,11 +34,11 @@ public class TimoGameController implements Initializable {
     
     private DataBuilder db;
     private Storage storage;
-    private ArrayList<Package> smartPosts;
+    private ArrayList<Package> packagesToSend;
     private ArrayList<Item> items;
-    
-    private String timo;
+
     private Package lastPackage;
+    private double totalDistance;
     /**
      * Initializes the controller class.
      */
@@ -47,24 +46,22 @@ public class TimoGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         wvMap.getEngine().load(getClass().getResource("index.html").toExternalForm());
+
         db = new DataBuilder();
         storage = Storage.getInstance();
-        timo = "1";
-        smartPosts = new ArrayList();
-        //smartPosts.addAll(db.getAllSmartPosts());
-        smartPosts.add(new PackageFirstCategory(new Item(), db.getAllSmartPosts().get(10),
-                db.getAllSmartPosts().get(50)));
-        smartPosts.add(new PackageSecondCategory(new Item(), db.getAllSmartPosts().get(60),
-                db.getAllSmartPosts().get(70)));
-        smartPosts.add(new PackageThirdCategory(new Item(), db.getAllSmartPosts().get(80),
-                db.getAllSmartPosts().get(90)));
-        packageListView.getItems().addAll(smartPosts);
+        totalDistance = 0.0d;
+        items = new ArrayList<>();
+        items.add(new Laptop());
+        items.add(new Plushie());
+        items.add(new Teacup());
+        items.add(new Teapot());
         
-        //Add packages
-        //Start clock
+        packagesToSend = createPackages();
+        packageListView.getItems().addAll(packagesToSend);
+
     }
     
-    private void drawPath(Package toDraw){
+    private double drawPath(Package toDraw){
         String script = "document.createPath(";
         //Get coordinates as String-array
         script += "[\"" + toDraw.getStart().getGp().getLat() + "\", ";
@@ -73,13 +70,13 @@ public class TimoGameController implements Initializable {
         script += "\"" + toDraw.getDestination().getGp().getLon() + "\"], ";
         script += "\"" + toDraw.getColor() + "\", ";
         script += toDraw.getCategory() + ")";
-        wvMap.getEngine().executeScript(script);
+        return (double) wvMap.getEngine().executeScript(script);
     }
     
-    private void relocateTimo(Package whereTo){
+    private double relocateTimo(Package whereTo){
         if(lastPackage == null){
             lastPackage = whereTo;
-            return;
+            return 0.0d;
         }
         String script = "document.createPath(";
         //Get coordinates as String-array
@@ -89,44 +86,34 @@ public class TimoGameController implements Initializable {
         script += "\"" + whereTo.getStart().getGp().getLon() + "\"], ";
         script += "\"" + lastPackage.getColor() + "\", ";
         script += lastPackage.getCategory() + ")";
-        wvMap.getEngine().executeScript(script);
-    }
-
-    private void changeTimo(){
-        if(this.timo.equals("1")){
-            timo = "2";
-        }else if(this.timo.equals("2")){
-            timo = "3";
-        }else if(this.timo.equals("3")){
-            timo = "1";
-        }
+        return (double) wvMap.getEngine().executeScript(script);
     }
     
     @FXML
     private void sendTimo(ActionEvent event) {
-        if(!timo.equals(packageListView.getSelectionModel().getSelectedItem().getCategory())){
-            packageInfoField.setText("Valitse Timolle sopiva paketti.\n" + 
-                    packageInfoField.getText());
+        if(packageListView.getItems().isEmpty()){
             return;
         }
         //Go to packages start location
-        relocateTimo(packageListView.getSelectionModel().getSelectedItem());
+        totalDistance += relocateTimo(packageListView.getSelectionModel().getSelectedItem());
         //Send package
-        drawPath(packageListView.getSelectionModel().getSelectedItem());
-        //Wait
-        //If broken, penalty
-        //Change TIMO
-        changeTimo();
+        totalDistance += drawPath(packageListView.getSelectionModel().getSelectedItem());
+        lastPackage = packageListView.getSelectionModel().getSelectedItem();
+        packageListView.getItems().remove(lastPackage);
+        if(packageListView.getItems().isEmpty()){
+            packageInfoField.setText("Kuljetit kaikki paketit, kiitos.\n" +
+                    "Timo käveli yhteensä " + String.valueOf(totalDistance) + "km.");
+        }
     }
     
-    private Collection createPackages(){
+    private ArrayList<Package> createPackages(){
         ArrayList<Package> createdPackages = new ArrayList();
         Package pac;
         Random rand = new Random();
-        for (int i=0; i<50; i++){
-            pac = new PackageFirstCategory(items.get(rand.nextInt(4)),
-                    db.getAllSmartPosts().get(rand.nextInt(smartPosts.size())),
-                    db.getAllSmartPosts().get(rand.nextInt(smartPosts.size())));
+        for (int i=0; i<20; i++){
+            pac = new PackageSecondCategory(items.get(rand.nextInt(4)),
+                    db.getAllSmartPosts().get(rand.nextInt(db.getAllSmartPosts().size())),
+                    db.getAllSmartPosts().get(rand.nextInt(db.getAllSmartPosts().size())));
             createdPackages.add(pac);
         }
         return createdPackages;
@@ -134,8 +121,6 @@ public class TimoGameController implements Initializable {
 
     @FXML
     private void updateInfoBox(MouseEvent event) {
-        packageInfoField.setText("TIMO: " + timo + "\n" + 
-                packageListView.getSelectionModel().getSelectedItem().toString() + "\n" +
-                "Paketin luokka: " + packageListView.getSelectionModel().getSelectedItem().getCategory());
+        packageInfoField.setText(packageListView.getSelectionModel().getSelectedItem().toString() + "\n");
     }
 }
