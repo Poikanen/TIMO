@@ -19,6 +19,7 @@ public class PackageFirstCategory extends Package{
     }
     
     public PackageFirstCategory () {}
+    
     public PackageFirstCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
         maxWidth = 60d;

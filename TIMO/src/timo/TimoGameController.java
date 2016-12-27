@@ -28,12 +28,12 @@ public class TimoGameController implements Initializable {
     @FXML
     private TextArea packageInfoField;
     @FXML
-    private ListView<?> packageListView;
+    private ListView<Package> packageListView;
 
     
     private DataBuilder db;
     private Storage storage;
-    private ArrayList<SmartPost> smartPosts;
+    private ArrayList<Package> smartPosts;
     /**
      * Initializes the controller class.
      */
@@ -44,14 +44,36 @@ public class TimoGameController implements Initializable {
         db = new DataBuilder();
         storage = Storage.getInstance();
         smartPosts = new ArrayList();
-        smartPosts.addAll(db.getAllSmartPosts());
-        packageListView.getItems().addAll((Collection)smartPosts);
+        //smartPosts.addAll(db.getAllSmartPosts());
+        smartPosts.add(new PackageFirstCategory(new Item(), db.getAllSmartPosts().get(10),
+                db.getAllSmartPosts().get(24)));
+        packageListView.getItems().addAll(smartPosts);
         
-    }    
+        //Add packages
+        //Start clock
+    }
+    
+    private void drawPath(Package toDraw){
+        String script = "document.createPath(";
+        //Get coordinates as String-array
+        script += "[\"" + toDraw.getStart().getGp().getLat() + "\", ";
+        script += "\"" + toDraw.getStart().getGp().getLon() + "\", ";
+        script += "\"" + toDraw.getDestination().getGp().getLat() + "\", ";
+        script += "\"" + toDraw.getDestination().getGp().getLon() + "\"], ";
+        script += "\"" + toDraw.getColor() + "\", ";
+        script += toDraw.getCategory() + ")";
+        wvMap.getEngine().executeScript(script);
+        
+    }
 
     @FXML
     private void sendTimo(ActionEvent event) {
-        
+        //Go to packages start location
+        //Send package
+        drawPath(packageListView.getSelectionModel().getSelectedItem());
+        //Wait
+        //If broken, penalty
+        //Change TIMO
     }
     
 }
