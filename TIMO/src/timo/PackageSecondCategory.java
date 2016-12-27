@@ -11,6 +11,8 @@ package timo;
  */
 public class PackageSecondCategory extends Package{
 
+    public PackageSecondCategory() {}
+
     public PackageSecondCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
         super(item, start, destination, sent);
         maxWidth = 11d;

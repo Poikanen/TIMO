@@ -18,6 +18,8 @@ public class PackageThirdCategory extends Package{
         maxDepth =60d;
     }
 
+    public PackageThirdCategory() {}
+
     public PackageThirdCategory(Item item, SmartPost start, SmartPost destination) {
         super(item, start, destination);
         maxWidth = 59d;

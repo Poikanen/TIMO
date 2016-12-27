@@ -205,7 +205,7 @@ public class Storage {
                         item = new Plushie(broken);
                         break;
                     case "Sofa":
-                        item = new Sofa(broken);
+                        item = new Teapot(broken);
                         break;
                     case "Teacup":
                         item = new Teacup(broken);
