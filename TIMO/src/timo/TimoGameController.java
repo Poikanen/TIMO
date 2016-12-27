@@ -1,4 +1,5 @@
-/*
+/* TIMO, LUT Olio-ohjelmointi 2016
+ * TimoGameController.java
  * Authors: 	Toivo Mattila
  *		Tommi Wäänänen
  *

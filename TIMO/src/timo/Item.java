@@ -1,4 +1,5 @@
-/*
+/* TIMO, LUT Olio-ohjelmointi 2016
+ * Item.java
  * Authors: 	Toivo Mattila
  *		Tommi Wäänänen
  *

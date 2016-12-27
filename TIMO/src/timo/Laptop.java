@@ -1,4 +1,5 @@
-/*
+/* TIMO, LUT Olio-ohjelmointi 2016
+ * Laptop.java
  * Authors: 	Toivo Mattila
  *		Tommi Wäänänen
  *
