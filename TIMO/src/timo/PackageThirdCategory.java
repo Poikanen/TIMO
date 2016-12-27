@@ -53,7 +53,7 @@ public class PackageThirdCategory extends Package{
         if(this.sent){
             return false;
         }
-        this.sendMessage = "Paketti lähetetty.\n";
+        this.sendMessage = this.item.getName() + " lähetetty 3.lk pakettina.\n";
         this.item.throwAround();
         this.sent = true;
         if(this.item.isBroken()){
