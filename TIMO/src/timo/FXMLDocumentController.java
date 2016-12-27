@@ -80,7 +80,7 @@ public class FXMLDocumentController implements Initializable {
         cbDestinationCity.getItems().addAll(db.getCities());
         
         //cbItem.getItems().add(new Item());
-        cbItem.getItems().add(new Sofa());
+        cbItem.getItems().add(new Teapot());
         cbItem.getItems().add(new Laptop());
         cbItem.getItems().add(new Teacup());
         cbItem.getItems().add(new Plushie());
@@ -130,13 +130,14 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleSendPacket(ActionEvent event) {
         Package toSend = createNewPackage();
-        //System.out.println("sendable" +toSend);
+        textInfoBox.setText("");
         if (toSend!=null)
         {
             textInfoBox.setText("");
             sendPackage(toSend);
             textInfoBox.setText("Paketti lähetetty.\n");
         }
+        
     }
     
     @FXML
@@ -156,7 +157,10 @@ public class FXMLDocumentController implements Initializable {
         ArrayList<Package> tmpToSend = storage.getUnsentPackages();
         textInfoBox.setText("");
         for(int i = 0; i < tmpToSend.size(); i++){
-            sendPackage(tmpToSend.get(i));
+            if (tmpToSend.get(i).send()){
+                sendPackage(tmpToSend.get(i));
+            }
+            textInfoBox.setText(tmpToSend.get(i).getSendMessage() +"\n" + textInfoBox.getText());
         }
         textInfoBox.setText("Kaikki paketit lähetetty.\n");
     }
@@ -238,7 +242,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleStorePacket(ActionEvent event) {
-        createNewPackage();
+        if(createNewPackage() != null)
+            textInfoBox.setText("Paketti varastoitu.");
     }
 
     
@@ -252,8 +257,8 @@ public class FXMLDocumentController implements Initializable {
             script += "\"" + toSend.getColor() + "\", ";
             script += toSend.getCategory() + ")";
             wvMap.getEngine().executeScript(script);
-            textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
             toSend.send();
+            //textInfoBox.setText(toSend.getSendMessage() + textInfoBox.getText());
             updatePackageCombo();
     }
 

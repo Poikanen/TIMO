@@ -1,8 +1,22 @@
-Paketteja yhteensä: 3
-Pakettiluokka: 1
-Lähtö: ESPOO S-market Juvankartano
-Kohde: ESPOO S-market Juvankartano
-Lähettämättä
+Paketteja yhteensä: 14
+
+Pakettiluokka: 2
+Lähtö: Äänekoski S-market Äänekoski
+Kohde: Äänekoski S-market Äänekoski
+Lähetetty
+Teacup
+Rikkoutuvaa
+Ehjä
+Syvyys: 7.0
+Leveys: 5.0
+Korkeus: 7.0
+Paino: 250.0
+Matkan pituus: 0km
+
+Pakettiluokka: 2
+Lähtö: Äänekoski S-market Äänekoski
+Kohde: Äänekoski S-market Äänekoski
+Lähetetty
 Teacup
 Rikkoutuvaa
 Ehjä
@@ -13,9 +27,22 @@ Paino: 250.0
 Matkan pituus: 0km
 
 Pakettiluokka: 1
-Lähtö: ÄÄNEKOSKI K-citymarket Äänekoski
-Kohde: ÄÄNEKOSKI K-citymarket Äänekoski
-Lähettämättä
+Lähtö: Äänekoski S-market Äänekoski
+Kohde: Äänekoski S-market Äänekoski
+Lähetetty
+Teacup
+Rikkoutuvaa
+Rikki
+Syvyys: 7.0
+Leveys: 5.0
+Korkeus: 7.0
+Paino: 250.0
+Matkan pituus: 0km
+
+Pakettiluokka: 2
+Lähtö: Äänekoski S-market Äänekoski
+Kohde: Äänekoski S-market Äänekoski
+Lähetetty
 Teacup
 Rikkoutuvaa
 Ehjä
@@ -25,16 +52,133 @@ Korkeus: 7.0
 Paino: 250.0
 Matkan pituus: 0km
 
-Pakettiluokka: 1
-Lähtö: ÄÄNEKOSKI K-citymarket Äänekoski
-Kohde: ÄÄNEKOSKI K-citymarket Äänekoski
-Lähettämättä
+Pakettiluokka: 3
+Lähtö: Äänekoski S-market Äänekoski
+Kohde: Äänekoski S-market Äänekoski
+Lähetetty
 Teacup
 Rikkoutuvaa
-Ehjä
+Rikki
 Syvyys: 7.0
 Leveys: 5.0
 Korkeus: 7.0
 Paino: 250.0
 Matkan pituus: 0km
+
+Pakettiluokka: 1
+Lähtö: ALAVUS S-market Alavus
+Kohde: FORSSA Prisma Forssa
+Lähettämättä
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 198km
+
+Pakettiluokka: 2
+Lähtö: ALAVUS S-market Alavus
+Kohde: FORSSA Prisma Forssa
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 198km
+
+Pakettiluokka: 3
+Lähtö: ALAVUS S-market Alavus
+Kohde: FORSSA Prisma Forssa
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 198km
+
+Pakettiluokka: 3
+Lähtö: ALAVUS S-market Alavus
+Kohde: FORSSA Prisma Forssa
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 198km
+
+Pakettiluokka: 1
+Lähtö: AKAA S-market Viiala
+Kohde: ELIMÄKI S-market Elimäki
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 145km
+
+Pakettiluokka: 1
+Lähtö: AKAA S-market Viiala
+Kohde: ALAVUS S-market Alavus
+Lähettämättä
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 154km
+
+Pakettiluokka: 2
+Lähtö: AKAA S-market Viiala
+Kohde: ALAVUS S-market Alavus
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 154km
+
+Pakettiluokka: 3
+Lähtö: AKAA S-market Viiala
+Kohde: ALAVUS S-market Alavus
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 154km
+
+Pakettiluokka: 2
+Lähtö: ÄÄNEKOSKI K-citymarket Äänekoski
+Kohde: EURA S-market Eura
+Lähetetty
+Laptop
+Ei rikkoudu
+Ehjä
+Syvyys: 30.0
+Leveys: 40.0
+Korkeus: 3.0
+Paino: 1500.0
+Matkan pituus: 243km
 

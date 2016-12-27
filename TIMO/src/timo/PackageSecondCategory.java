@@ -9,6 +9,8 @@ package timo;
 
 public class PackageSecondCategory extends Package{
 
+    public PackageSecondCategory() {}
+
     public PackageSecondCategory(Item item, SmartPost start, SmartPost destination, boolean sent) {
         super(item, start, destination, sent);
         maxWidth = 11d;
@@ -49,7 +51,7 @@ public class PackageSecondCategory extends Package{
             return false;
         }
         this.sent = true;
-        this.sendMessage = "Paketti lähetetty.\n";
+        this.sendMessage = this.item.getName() + " lähetetty 2.lk pakettina.\n";
         return true;
     }
 
