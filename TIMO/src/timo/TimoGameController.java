@@ -99,7 +99,7 @@ public class TimoGameController implements Initializable {
         packageListView.getItems().remove(lastPackage);
         if(packageListView.getItems().isEmpty()){
             packageInfoField.setText("Kuljetit kaikki paketit, kiitos.\n" +
-                    "Timo käveli yhteensä " + String.valueOf(totalDistance) + "km.");
+                    "Timo käveli yhteensä " + String.valueOf(Math.round(totalDistance)) + "km.");
         }
     }
     
