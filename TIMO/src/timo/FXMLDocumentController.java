@@ -82,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
         cbDestinationCity.getItems().addAll(db.getCities());
         
         //cbItem.getItems().add(new Item());
-        cbItem.getItems().add(new Sofa());
+        cbItem.getItems().add(new Teapot());
         cbItem.getItems().add(new Laptop());
         cbItem.getItems().add(new Teacup());
         cbItem.getItems().add(new Plushie());
