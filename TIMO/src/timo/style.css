@@ -7,22 +7,81 @@ and open the template in the editor.
     Created on : 25.12.2016, 20:56:33
     Author     : Toivo
 */
+.root{
+    -fx-background-color: #ff8000;
+}
 
 .button{
-    -fx-background-color: #ff8000;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
 }
+.button:hover{
+    -fx-background-color: #ff9525;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
 .combo-box{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
+}
+.combo-box .cell{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
+}
+.combo-box .arrow{
     -fx-background-color: #ff8000;
 }
+
 .tab{
+    -fx-background-color: #ffffff;
+}
+.tab .tab-label{
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
+}
+.tab-pane:top .tab-header-area .tab-header-background{
     -fx-background-color: #ff8000;
+}
+
+.text-area .content{
+    -fx-background-color: #ffffff;
 }
 .text-area{
-    -fx-background-color: #ff8000;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
 }
+
 .text-field{
-    -fx-background-color: #ff8000;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
 }
+
 .tooltip{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #ff8000;
+    -fx-font-weight: bold;
+}
+
+.label{
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.radio-button{
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+.radio-button .dot{
+    -fx-mark-color: #ff8000;
+}
+
+.check-box{
     -fx-background-color: #ff8000;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
 }

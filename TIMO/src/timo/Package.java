@@ -107,13 +107,16 @@ abstract public class Package {
     }
     
     public boolean doesFit(Item item){
-        return (item.width <= maxWidth && item.height <= maxHeight && item.depth <= maxDepth)||
-                (item.width <= maxWidth && item.depth <= maxHeight && item.height <= maxDepth)||
-                (item.height <= maxWidth && item.width <= maxHeight && item.depth <= maxDepth)||
-                (item.height <= maxWidth && item.depth <= maxHeight && item.width <= maxDepth)||
-                (item.depth <= maxWidth && item.height <= maxHeight && item.width <= maxDepth)||
-                (item.depth <= maxWidth && item.width <= maxHeight && item.height <= maxDepth);
-                
+        if ((item.width <= maxWidth && item.height <= maxHeight && item.depth <= maxDepth)||
+            (item.width <= maxWidth && item.depth <= maxHeight && item.height <= maxDepth)||
+            (item.height <= maxWidth && item.width <= maxHeight && item.depth <= maxDepth)||
+            (item.height <= maxWidth && item.depth <= maxHeight && item.width <= maxDepth)||
+            (item.depth <= maxWidth && item.height <= maxHeight && item.width <= maxDepth)||
+            (item.depth <= maxWidth && item.width <= maxHeight && item.height <= maxDepth)){
+        return true;
+        }      
+        this.sendMessage = "Tavara ei mahdu pakettiin!";
+        return false;
     }
     
     abstract public Package getCopy();
