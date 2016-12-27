@@ -8,6 +8,7 @@ package timo;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -119,11 +120,14 @@ public class TimoGameController implements Initializable {
     }
     
     private Collection createPackages(){
-        ArrayList createdPackages = new ArrayList();
+        ArrayList<Package> createdPackages = new ArrayList();
         Package pac;
-        
+        Random rand = new Random();
         for (int i=0; i<50; i++){
-            //pac = new PackageFirstCategory(items.get(rand()));
+            pac = new PackageFirstCategory(items.get(rand.nextInt(4)),
+                    db.getAllSmartPosts().get(rand.nextInt(smartPosts.size())),
+                    db.getAllSmartPosts().get(rand.nextInt(smartPosts.size())));
+            createdPackages.add(pac);
         }
         return createdPackages;
     }
