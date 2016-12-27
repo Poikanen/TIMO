@@ -90,9 +90,11 @@ public class FXMLDocumentController implements Initializable {
         Tooltip rbTip2 = new Tooltip();
         Tooltip rbTip3 = new Tooltip();
         
-        rbTip1.setText("Teksti tähän");
-        rbTip2.setText("Teksti tähän");
-        rbTip3.setText("Teksti tähän");
+        rbTip1.setText("Paketti kuljetetaan juosten\n"
+                + "enintään 150km päähän.");
+        rbTip2.setText("Paketti kulkeutuu kävellen\n"
+                + "kaikkialle Suomeen.");
+        rbTip3.setText("Paketti paiskotaan perille.");
         
         rbFirstClass.setTooltip(rbTip1);
         rbSecondClass.setTooltip(rbTip2);
